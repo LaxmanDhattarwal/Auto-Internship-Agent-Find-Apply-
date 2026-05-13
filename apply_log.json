@@ -1,0 +1,132 @@
+[
+  {
+    "date": "2026-05-13 13:50",
+    "user_id": "demo",
+    "platform": "internshala",
+    "role": "Full Stack Development",
+    "company": "Kosqu Technolabs",
+    "status": "ERROR",
+    "message": "Target page, context or browser has been closed\n=========================== logs ===================",
+    "url": "https://internshala.com/internship/detail/full-stack-development-internship-in-navi-mumbai-at-kosqu-technolabs1778636557"
+  },
+  {
+    "date": "2026-05-13 13:50",
+    "user_id": "demo",
+    "platform": "internshala",
+    "role": "Full Stack Development",
+    "company": "Kosqu Technolabs",
+    "status": "ERROR",
+    "message": "Target page, context or browser has been closed",
+    "url": "https://internshala.com/internship/detail/full-stack-development-internship-in-navi-mumbai-at-kosqu-technolabs1778636557"
+  },
+  {
+    "date": "2026-04-24 12:05",
+    "user_id": "demo",
+    "platform": "internshala",
+    "role": "Hybrid Bioinformatics & AI (Integrated Cohort, Ultraceuticals)",
+    "company": "Fortem Biosciences Private Limited",
+    "status": "ERROR",
+    "message": "Locator.fill: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"textarea[name='cover_lett",
+    "url": "https://internshala.com/internship/detail/hybrid-bioinformatics-ai-integrated-cohort-ultraceuticals-internship-in-bangalore-at-fortem-biosciences-private-limited1776256963"
+  },
+  {
+    "date": "2026-04-24 12:05",
+    "user_id": "demo",
+    "platform": "internshala",
+    "role": "Hybrid Bioinformatics & AI (Integrated Cohort, Ultraceuticals)",
+    "company": "Fortem Biosciences Private Limited",
+    "status": "ERROR",
+    "message": "Locator.fill: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"textarea[name='cover_lett",
+    "url": "https://internshala.com/internship/detail/hybrid-bioinformatics-ai-integrated-cohort-ultraceuticals-internship-in-bangalore-at-fortem-biosciences-private-limited1776256963"
+  },
+  {
+    "date": "2026-04-20 23:33",
+    "user_id": "demo",
+    "platform": "internshala",
+    "role": "Front End Development",
+    "company": "Sunmarg India",
+    "status": "SKIPPED",
+    "message": "No Apply button found on page",
+    "url": "https://internshala.com/internship/detail/front-end-development-internship-in-multiple-locations-at-sunmarg-india1776666133"
+  },
+  {
+    "date": "2026-04-20 23:32",
+    "user_id": "demo",
+    "platform": "internshala",
+    "role": "Unity Developer",
+    "company": "AR Genie Inc.",
+    "status": "ERROR",
+    "message": "Login failed \u2014 check saved password",
+    "url": "https://internshala.com/internship/detail/unity-developer-internship-in-dehradun-at-ar-genie-inc1776163212"
+  },
+  {
+    "date": "2026-04-20 23:32",
+    "user_id": "demo",
+    "platform": "internshala",
+    "role": "Unity Developer",
+    "company": "AR Genie Inc.",
+    "status": "SKIPPED",
+    "message": "No Apply button found on page",
+    "url": "https://internshala.com/internship/detail/unity-developer-internship-in-dehradun-at-ar-genie-inc1776163212"
+  },
+  {
+    "date": "2026-04-17 19:14",
+    "user_id": "demo",
+    "platform": "internshala",
+    "role": "Full Stack Development",
+    "company": "New Era Consultancy Services",
+    "status": "SKIPPED",
+    "message": "No Apply button found on page",
+    "url": "https://internshala.com/internship/detail/full-stack-development-internship-in-jalgaon-at-new-era-consultancy-services1773927236"
+  },
+  {
+    "date": "2026-04-16 12:39",
+    "user_id": "demo",
+    "platform": "internshala",
+    "role": "Full Stack Development",
+    "company": "Maxgen Technologies Private Limited",
+    "status": "ERROR",
+    "message": "Login failed \u2014 check saved password",
+    "url": "https://internshala.com/internship/detail/full-stack-development-internship-in-ahmedabad-at-maxgen-technologies-private-limited1776315799"
+  },
+  {
+    "date": "2026-04-16 12:39",
+    "user_id": "demo",
+    "platform": "internshala",
+    "role": "Full Stack Development",
+    "company": "Maxgen Technologies Private Limited",
+    "status": "ERROR",
+    "message": "Login failed \u2014 check saved password",
+    "url": "https://internshala.com/internship/detail/full-stack-development-internship-in-ahmedabad-at-maxgen-technologies-private-limited1776315799"
+  },
+  {
+    "date": "2026-04-14 11:58",
+    "user_id": "demo",
+    "platform": "internshala",
+    "role": "ReactJS Development",
+    "company": "CyberFrat",
+    "status": "ERROR",
+    "message": "Login failed \u2014 check saved password",
+    "url": "https://internshala.com/internship/detail/reactjs-development-internship-in-jaipur-at-cyberfrat1775805916"
+  },
+  {
+    "date": "2026-04-14 11:56",
+    "user_id": "demo",
+    "platform": "internshala",
+    "role": "ReactJS Development",
+    "company": "CyberFrat",
+    "status": "ERROR",
+    "message": "Timeout 30000ms exceeded.\n=========================== logs ===========================\n\"commit\" even",
+    "url": "https://internshala.com/internship/detail/reactjs-development-internship-in-jaipur-at-cyberfrat1775805916"
+  },
+  {
+    "date": "2026-04-14 11:54",
+    "user_id": "demo",
+    "platform": "internshala",
+    "role": "PHP Development",
+    "company": "INFOWAY",
+    "status": "SKIPPED",
+    "message": "No Apply button found on page",
+    "url": "https://internshala.com/internship/detail/php-development-internship-in-mumbai-at-infoway1776077069"
+  }
+]

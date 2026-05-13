@@ -1,0 +1,1746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>ApplyAI Pro — Smart Internship Agent 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<style>
+:root{
+  --p:#2563eb;--p2:#1d4ed8;--p3:#eff6ff;--p4:#dbeafe;
+  --g:#059669;--g2:#047857;--gb:#ecfdf5;--g3:#a7f3d0;
+  --o:#d97706;--ob:#fffbeb;--o3:#fde68a;
+  --r:#dc2626;--rb:#fef2f2;--r3:#fecaca;
+  --pu:#7c3aed;--pub:#f5f3ff;--pu3:#ede9fe;
+  --y:#ca8a04;--yb:#fefce8;
+  --tx:#111827;--tx2:#6b7280;--tx3:#9ca3af;
+  --bg:#f3f4f6;--bg2:#e5e7eb;--wh:#fff;
+  --br:#e5e7eb;--br2:#d1d5db;
+  --sh:0 1px 3px rgba(0,0,0,.1);--sh2:0 4px 12px rgba(0,0,0,.1);--sh3:0 10px 25px rgba(0,0,0,.1);
+  --r:12px;--rs:8px;--rx:999px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow-x:hidden}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.5}
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--br2);border-radius:var(--rx)}
+
+/* AUTH */
+#auth{position:fixed;inset:0;z-index:999;display:flex;overflow-y:auto;background:#1e3a8a}
+#auth.gone{display:none}
+.auth-split{display:flex;min-height:100vh;width:100%}
+.auth-l{flex:0 0 420px;padding:3rem;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(160deg,#1e3a8a,#2563eb)}
+@media(max-width:800px){.auth-l{display:none}}
+.al-brand{display:flex;align-items:center;gap:10px;margin-bottom:2.5rem}
+.al-ic{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:#fff}
+.al-nm{font-size:24px;font-weight:800;color:#fff}
+.al-h{font-size:30px;font-weight:800;color:#fff;line-height:1.3;margin-bottom:.75rem;letter-spacing:-.5px}
+.al-hl{color:#fbbf24}
+.al-s{font-size:13px;color:rgba(255,255,255,.75);line-height:1.7;margin-bottom:1.5rem}
+.al-feats{display:flex;flex-direction:column;gap:.6rem}
+.al-feat{display:flex;align-items:center;gap:9px;font-size:13px;color:rgba(255,255,255,.9)}
+.al-fi{width:26px;height:26px;border-radius:7px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.al-stats{display:flex;gap:2rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.15)}
+.ast-n{font-size:22px;font-weight:800;color:#fff}
+.ast-l{font-size:11px;color:rgba(255,255,255,.6);margin-top:1px}
+.auth-r{flex:1;background:#fff;padding:2.5rem;display:flex;align-items:center;justify-content:center;overflow-y:auto}
+.auth-box{width:100%;max-width:400px}
+.ar-t{font-size:24px;font-weight:800;margin-bottom:.2rem;letter-spacing:-.4px}
+.ar-s{font-size:13px;color:var(--tx2);margin-bottom:1.5rem}
+.atabs{display:flex;background:var(--bg);border-radius:var(--rs);padding:3px;margin-bottom:1.25rem}
+.atb{flex:1;padding:9px;text-align:center;font-size:13px;font-weight:600;cursor:pointer;color:var(--tx2);border:none;background:transparent;border-radius:6px;transition:all .2s}
+.atb.on{background:#fff;color:var(--p);box-shadow:var(--sh)}
+.afrm{display:none}.afrm.on{display:block}
+.fg{margin-bottom:.8rem}
+.fl{display:block;font-size:12px;font-weight:600;color:var(--tx);margin-bottom:4px}
+.fi{width:100%;background:var(--bg);border:1.5px solid var(--br2);border-radius:var(--rs);color:var(--tx);font-size:13px;padding:10px 13px;outline:none;transition:all .15s}
+.fi:focus{border-color:var(--p);background:#fff;box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+.fi::placeholder{color:var(--tx3)}
+.fg2{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.abtn{width:100%;padding:12px;border-radius:var(--rs);background:var(--p);border:none;color:#fff;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;margin-top:.25rem}
+.abtn:hover{background:var(--p2);transform:translateY(-1px);box-shadow:0 4px 14px rgba(37,99,235,.35)}
+.aerr{background:var(--rb);border:1.5px solid var(--r3);border-radius:var(--rs);padding:.65rem .9rem;font-size:12px;color:var(--r);margin-bottom:.75rem;display:none}
+.aok{background:var(--gb);border:1.5px solid var(--g3);border-radius:var(--rs);padding:.65rem .9rem;font-size:12px;color:var(--g);margin-bottom:.75rem;display:none}
+.asep{text-align:center;font-size:11px;color:var(--tx3);margin:.65rem 0}
+.demobtn{width:100%;padding:10px;border-radius:var(--rs);background:var(--bg);border:1.5px solid var(--br2);color:var(--tx2);font-size:12px;font-weight:500;cursor:pointer;transition:all .15s}
+.demobtn:hover{border-color:var(--p);color:var(--p)}
+
+/* TOPBAR */
+.topbar{background:#fff;border-bottom:1px solid var(--br);height:54px;display:flex;align-items:center;padding:0 1.25rem;gap:.65rem;position:sticky;top:0;z-index:200;box-shadow:var(--sh)}
+.brand{display:flex;align-items:center;gap:7px;text-decoration:none}
+.brand-ic{width:28px;height:28px;border-radius:8px;background:var(--p);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#fff}
+.brand-nm{font-size:16px;font-weight:800;color:var(--p)}
+.sdot{display:flex;align-items:center;gap:4px;font-size:11px;font-weight:600;padding:3px 9px;border-radius:var(--rx);white-space:nowrap}
+.s-on{background:var(--gb);color:var(--g)}.s-off{background:var(--rb);color:var(--r)}
+.sd{width:6px;height:6px;border-radius:50%}.sd-g{background:var(--g);animation:bl 1.5s infinite}.sd-r{background:var(--r)}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:.35}}
+.tb-nav{display:flex;align-items:center;gap:1px;margin-left:auto}
+.tbn{padding:6px 10px;border-radius:var(--rs);font-size:12px;font-weight:500;cursor:pointer;color:var(--tx2);border:none;background:transparent;transition:all .15s;white-space:nowrap}
+.tbn:hover{color:var(--p);background:var(--p3)}
+.tbn.on{color:var(--p);background:var(--p3);font-weight:700}
+.nb{background:var(--r);color:#fff;font-size:9px;padding:1px 4px;border-radius:var(--rx);margin-left:3px;font-weight:700}
+.tb-user{display:flex;align-items:center;gap:6px;padding:4px 9px;border-radius:var(--rx);background:var(--p3);cursor:pointer;border:none;margin-left:.4rem}
+.uav{width:24px;height:24px;border-radius:50%;background:var(--p);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff}
+.unm{font-size:12px;font-weight:600;color:var(--p)}
+.tb-logout{font-size:11px;color:var(--r);cursor:pointer;padding:4px 9px;border-radius:var(--rs);border:1.5px solid var(--r3);background:transparent;font-weight:500}
+.tb-logout:hover{background:var(--rb)}
+@media(max-width:768px){.tb-nav{display:none}}
+
+/* APP */
+#app{display:none}
+#app.on{display:block}
+.ctn{max-width:1180px;margin:0 auto;padding:1.25rem}
+
+/* PANELS */
+.pn{display:none;animation:fi .2s ease}.pn.on{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.ph{margin-bottom:1.25rem}
+.ph-t{font-size:20px;font-weight:800;letter-spacing:-.3px}
+.ph-s{font-size:12px;color:var(--tx2);margin-top:2px}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#1e3a8a,var(--p));border-radius:16px;padding:1.75rem;margin-bottom:1.1rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.05);top:-70px;right:-50px}
+.h-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem;position:relative}
+.h-title{font-size:22px;font-weight:800;color:#fff;letter-spacing:-.4px}
+.h-sub{font-size:13px;color:rgba(255,255,255,.75);margin-top:2px}
+.h-form{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:.6rem;position:relative}
+@media(max-width:700px){.h-form{grid-template-columns:1fr 1fr}}
+.hsel{padding:9px 12px;border-radius:var(--rs);font-size:13px;border:none;color:var(--tx);background:#fff;width:100%;cursor:pointer;font-weight:500;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath fill='%236b7280' d='M5 6L0 0h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 9px center;padding-right:26px}
+.hbtn{padding:9px 20px;background:#fbbf24;border:none;border-radius:var(--rs);font-size:13px;font-weight:700;color:#1c1917;cursor:pointer;transition:all .2s;white-space:nowrap}
+.hbtn:hover{background:#f59e0b;transform:translateY(-1px)}
+.hbtn:disabled{opacity:.6;cursor:default;transform:none}
+.qtags{display:flex;flex-wrap:wrap;gap:5px;margin-top:.85rem;position:relative}
+.qt{padding:4px 11px;border-radius:var(--rx);background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.22);color:#fff;font-size:11px;font-weight:500;cursor:pointer;transition:all .15s}
+.qt:hover{background:rgba(255,255,255,.25)}
+
+/* SEARCH BODY */
+.search-body{display:grid;grid-template-columns:220px 1fr;gap:1rem;align-items:start}
+@media(max-width:800px){.search-body{grid-template-columns:1fr}.fsb{display:none!important}}
+
+/* FILTER SIDEBAR */
+.fsb{background:#fff;border:1px solid var(--br);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);position:sticky;top:66px}
+.fsb-h{padding:.75rem 1rem;border-bottom:1px solid var(--br);display:flex;justify-content:space-between;align-items:center}
+.fsb-ht{font-size:12px;font-weight:700}
+.fsb-clr{font-size:11px;color:var(--p);cursor:pointer;font-weight:600}
+.fsb-s{padding:.65rem .9rem;border-bottom:1px solid var(--br)}
+.fsb-s:last-child{border-bottom:none}
+.fsb-st{font-size:10px;font-weight:700;color:var(--tx2);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.5rem}
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+.chip{padding:3px 8px;border-radius:var(--rx);font-size:11px;font-weight:500;cursor:pointer;border:1.5px solid var(--br2);color:var(--tx2);background:#fff;transition:all .15s}
+.chip:hover{border-color:var(--p);color:var(--p)}
+.chip.on{background:var(--p3);border-color:var(--p);color:var(--p);font-weight:700}
+.fsel{width:100%;padding:7px 9px;border:1.5px solid var(--br2);border-radius:var(--rs);font-size:11px;color:var(--tx);background:var(--bg);outline:none;cursor:pointer}
+
+/* JOB CARD */
+.jcard{background:#fff;border:1px solid var(--br);border-radius:var(--r);padding:1rem;margin-bottom:.65rem;box-shadow:var(--sh);transition:all .2s;position:relative;overflow:hidden}
+.jcard:hover{box-shadow:var(--sh3);border-color:var(--p4);transform:translateY(-2px)}
+.jcard-bar{position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:3px 0 0 3px}
+.jcard.jc-ai .jcard-bar{background:var(--p)}
+.jcard.jc-local .jcard-bar{background:var(--o)}
+.jcard.jc-research .jcard-bar{background:var(--pu)}
+.jcard.jc-applied .jcard-bar{background:var(--g)}
+.jcard-h{display:flex;align-items:flex-start;gap:10px;margin-bottom:.65rem}
+.co-logo{width:42px;height:42px;border-radius:9px;background:var(--p3);border:1px solid var(--p4);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:var(--p);flex-shrink:0}
+.co-logo.lo{background:var(--ob);border-color:var(--o3);color:var(--o)}
+.co-logo.re{background:var(--pub);border-color:var(--pu3);color:var(--pu)}
+.co-logo.hr{background:var(--gb);border-color:var(--g3);color:var(--g)}
+.jcard-inf{flex:1;min-width:0}
+.jcard-t{font-size:14px;font-weight:700;display:flex;flex-wrap:wrap;align-items:center;gap:4px;line-height:1.3}
+.jcard-co{font-size:12px;color:var(--tx2);margin-top:2px}
+.jcard-meta{display:flex;flex-wrap:wrap;gap:8px;font-size:11px;color:var(--tx2);margin-top:4px}
+.jm{display:flex;align-items:center;gap:3px}
+.mring{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.mr-t{background:conic-gradient(var(--g) calc(var(--p2)*3.6deg),var(--bg2) 0)}
+.mr-h{background:conic-gradient(var(--p) calc(var(--p2)*3.6deg),var(--bg2) 0)}
+.mr-m{background:conic-gradient(var(--o) calc(var(--p2)*3.6deg),var(--bg2) 0)}
+.mring-in{width:32px;height:32px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700}
+.jcard-tags{display:flex;flex-wrap:wrap;gap:3px;margin:.5rem 0}
+.jtag{padding:2px 7px;border-radius:var(--rx);font-size:10px;font-weight:500}
+.jt-s{background:var(--p3);color:var(--p)}
+.jt-src{background:var(--bg2);color:var(--tx2)}
+.jt-dl{background:var(--ob);color:var(--o);border:1px solid var(--o3)}
+.jt-hot{background:var(--rb);color:var(--r);font-weight:700}
+.jt-top{background:var(--gb);color:var(--g);font-weight:700}
+.jt-local{background:var(--ob);color:var(--o);font-weight:600}
+.jt-hr{background:var(--gb);color:var(--g)}
+.jt-new{background:var(--pu3);color:var(--pu)}
+.jcard-why{font-size:11px;color:var(--tx2);background:var(--bg);border-radius:var(--rs);padding:.4rem .65rem;margin:.4rem 0 .65rem;line-height:1.5}
+.jcard-f{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.4rem}
+.jcard-st{display:flex;align-items:center;gap:4px;font-size:11px;font-weight:600}
+.dot{width:5px;height:5px;border-radius:50%}
+.dot-g{background:var(--g)}.dot-p{background:var(--p)}.dot-o{background:var(--o)}
+
+/* CARDS */
+.card{background:#fff;border:1px solid var(--br);border-radius:var(--r);padding:1rem 1.1rem;box-shadow:var(--sh)}
+.card+.card{margin-top:.65rem}
+.ctitle{font-size:10px;font-weight:700;color:var(--tx3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.65rem}
+
+/* METRICS */
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:.65rem;margin-bottom:1.1rem}
+.met{background:#fff;border:1px solid var(--br);border-radius:var(--r);padding:.85rem;cursor:pointer;transition:all .2s;box-shadow:var(--sh);position:relative;overflow:hidden}
+.met:hover{transform:translateY(-2px);box-shadow:var(--sh3);border-color:var(--p4)}
+.met::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;border-radius:0 0 var(--r) var(--r)}
+.mp::after{background:var(--p)}.mt::after{background:var(--g)}.ma::after{background:var(--o)}.mb::after{background:var(--pu)}
+.mv{font-size:26px;font-weight:800;color:var(--tx);line-height:1}
+.ml{font-size:11px;color:var(--tx2);margin-top:3px;font-weight:500}
+.ms{font-size:10px;color:var(--p);margin-top:2px;font-weight:600}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:5px;padding:7px 14px;border-radius:var(--rs);border:1.5px solid var(--br2);background:#fff;color:var(--tx);font-size:12px;font-weight:600;cursor:pointer;transition:all .15s;white-space:nowrap;text-decoration:none}
+.btn:hover{background:var(--bg);border-color:var(--br2)}
+.btn:active{transform:scale(.98)}
+.btn:disabled{opacity:.35;cursor:default;transform:none!important}
+.bp{background:var(--p);border-color:var(--p);color:#fff}.bp:hover{background:var(--p2)}
+.bg2{background:var(--g);border-color:var(--g);color:#fff}.bg2:hover{background:var(--g2)}
+.bfull{width:100%;padding:10px;justify-content:center}
+.blg{padding:10px 20px;font-size:13px}
+.bsm{padding:4px 10px;font-size:11px}
+.bglow{box-shadow:0 4px 14px rgba(37,99,235,.3)}.bglow:hover{box-shadow:0 6px 20px rgba(37,99,235,.4)}
+.row{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.6rem}
+@media(max-width:600px){.g2,.g3{grid-template-columns:1fr}}
+
+/* APPLY STEPS */
+.aa-steps{display:flex;flex-direction:column;gap:.35rem;margin:.5rem 0}
+.aa-step{display:flex;align-items:center;gap:9px;padding:.6rem .85rem;border-radius:var(--rs);background:var(--bg);border:1.5px solid var(--br);transition:all .3s}
+.aa-step.ac{border-color:var(--p);background:var(--p3);animation:pp .8s infinite}
+.aa-step.dn{border-color:var(--g);background:var(--gb)}
+.aa-step.er{border-color:var(--r);background:var(--rb)}
+@keyframes pp{0%,100%{opacity:1}50%{opacity:.6}}
+.as-ic{width:26px;height:26px;border-radius:50%;background:#fff;border:1.5px solid var(--br);display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0}
+.pbw{background:var(--bg2);border-radius:var(--rx);height:7px;overflow:hidden;margin:.5rem 0}
+.pb{height:100%;border-radius:var(--rx);background:linear-gradient(90deg,var(--p),var(--g));transition:width .5s ease;width:0}
+
+/* PLATFORM CARDS */
+.plat-card{display:flex;align-items:center;gap:9px;padding:.75rem .9rem;border-radius:var(--rs);border:1.5px solid var(--br2);background:#fff;margin-bottom:.4rem;cursor:pointer;transition:all .2s;text-decoration:none;width:100%}
+.plat-card:hover{border-color:var(--p);background:var(--p3);transform:translateX(2px)}
+.plat-card.pri{background:var(--p);border-color:var(--p)}
+.plat-card.pri:hover{background:var(--p2)}
+.plat-card.pri .pt,.plat-card.pri .ps{color:#fff!important}
+.plat-card.pri .pa{color:rgba(255,255,255,.8)}
+.pt{font-size:12px;font-weight:700;color:var(--tx)}
+.ps{font-size:11px;color:var(--tx2);margin-top:1px}
+.pa{margin-left:auto;font-size:15px;font-weight:700;color:var(--p)}
+
+/* CREDS BADGE */
+.cred-badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;padding:2px 7px;border-radius:var(--rx)}
+.cb-ok{background:var(--gb);color:var(--g)}
+.cb-no{background:var(--rb);color:var(--r)}
+
+/* SKILL SELECT */
+.skill-select-wrap{background:var(--bg);border:1.5px solid var(--br2);border-radius:var(--r);padding:.85rem;margin:.65rem 0}
+.skill-chips{display:flex;flex-wrap:wrap;gap:5px}
+.sk-chip{padding:4px 10px;border-radius:var(--rx);font-size:11px;font-weight:600;cursor:pointer;border:1.5px solid var(--br2);color:var(--tx2);background:#fff;transition:all .15s}
+.sk-chip:hover{border-color:var(--p);color:var(--p)}
+.sk-chip.on{background:var(--p3);border-color:var(--p);color:var(--p)}
+
+/* MISC */
+select,.inp{background:var(--bg);border:1.5px solid var(--br2);border-radius:var(--rs);color:var(--tx);font-size:12px;padding:8px 11px;outline:none;transition:all .15s}
+select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath fill='%236b7280' d='M5 6L0 0h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 9px center;padding-right:26px;cursor:pointer}
+select:focus,.inp:focus{border-color:var(--p);background:#fff}
+textarea{background:var(--bg);border:1.5px solid var(--br2);border-radius:var(--rs);color:var(--tx);font-size:12px;font-family:inherit;padding:.75rem;resize:vertical;outline:none;line-height:1.6;width:100%;transition:border-color .15s}
+textarea:focus{border-color:var(--p);background:#fff}
+.inp::placeholder{color:var(--tx3)}
+.dv{height:1px;background:var(--br);margin:.75rem 0}
+.dr{display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;border-bottom:1px solid var(--br);font-size:12px}
+.dr:last-child{border-bottom:none}
+.dk{color:var(--tx2);font-weight:500}.dval{font-weight:600;text-align:right;max-width:65%;word-break:break-word}
+.ibox{background:var(--p3);border:1.5px solid var(--p4);border-radius:var(--rs);padding:.7rem .9rem;font-size:12px;color:var(--p2);line-height:1.6}
+.gbox{background:var(--gb);border:1.5px solid var(--g3);border-radius:var(--rs);padding:.7rem .9rem;font-size:12px;color:var(--g2);line-height:1.6}
+.obox{background:var(--ob);border:1.5px solid var(--o3);border-radius:var(--rs);padding:.7rem .9rem;font-size:12px;color:var(--o);line-height:1.6}
+.logbox{background:var(--bg);border:1px solid var(--br);border-radius:var(--rs);padding:.7rem;font-size:11px;font-family:monospace;line-height:1.9;min-height:44px;max-height:150px;overflow-y:auto}
+.lok{color:var(--g)}.lru{color:var(--p)}.lw{color:var(--o)}.le{color:var(--r)}.lai{color:var(--pu)}
+.upz{border:2px dashed var(--br2);border-radius:var(--r);padding:2rem;text-align:center;cursor:pointer;transition:all .2s;position:relative;background:var(--bg)}
+.upz:hover,.upz.drag{border-color:var(--p);background:var(--p3)}
+.upz input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.upz.done{border-color:var(--g);background:var(--gb)}
+.sp{display:inline-block;width:12px;height:12px;border:2px solid currentColor;border-top-color:transparent;border-radius:50%;animation:rot .7s linear infinite}
+@keyframes rot{to{transform:rotate(360deg)}}
+.sfx{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);background:var(--tx);color:#fff;border-radius:10px;padding:.75rem 1.25rem;font-size:12px;font-weight:500;z-index:9999;box-shadow:var(--sh3);pointer-events:none;animation:sfxa .3s;max-width:90vw;text-align:center}
+@keyframes sfxa{from{opacity:0;transform:translateX(-50%) translateY(8px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(4px);z-index:500;display:none;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow-y:auto}
+.ov.open{display:flex}
+.modal{background:#fff;border-radius:16px;padding:1.5rem;width:100%;max-width:540px;box-shadow:0 20px 60px rgba(0,0,0,.15);margin:auto}
+.mh{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;gap:8px}
+.mt2{font-size:17px;font-weight:800}
+.mcl{background:var(--bg2);border:1px solid var(--br);border-radius:7px;color:var(--tx2);cursor:pointer;padding:3px 9px;font-size:14px;transition:all .15s}
+.mcl:hover{background:var(--rb);border-color:var(--r3);color:var(--r)}
+.itabs{display:flex;gap:2px;border-bottom:2px solid var(--br);margin-bottom:.85rem}
+.itab{padding:7px 12px;font-size:12px;font-weight:600;cursor:pointer;color:var(--tx2);border:none;background:transparent;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .15s}
+.itab:hover{color:var(--p)}
+.itab.on{color:var(--p);border-bottom-color:var(--p)}
+.itabp{display:none}.itabp.on{display:block}
+.ats-pre{background:var(--bg);border:1px solid var(--br);border-radius:var(--rs);padding:1rem;font-size:11.5px;font-family:monospace;line-height:1.75;white-space:pre-wrap;max-height:480px;overflow-y:auto}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:.5rem;margin-bottom:.85rem}
+.cat-btn{padding:.55rem .75rem;border-radius:var(--rs);border:1.5px solid var(--br2);background:#fff;color:var(--tx2);font-size:11px;font-weight:600;cursor:pointer;transition:all .15s;text-align:left}
+.cat-btn:hover{border-color:var(--p);color:var(--p);background:var(--p3)}
+.cat-btn.on{background:var(--p3);border-color:var(--p);color:var(--p)}
+</style>
+</head>
+<body>
+
+<!-- AUTH -->
+<div id="auth">
+<div class="auth-split">
+  <div class="auth-l">
+    <div class="al-brand"><div class="al-ic">A</div><div class="al-nm">ApplyAI Pro</div></div>
+    <div class="al-h">Find &amp; Apply to<br><span class="al-hl">Every Internship</span></div>
+    <div class="al-s">Internshala, Naukri, Unstop — AI/ML, Web Dev, HR, Marketing, SDE &amp; 30+ categories. Auto-apply saves your password once, applies forever.</div>
+    <div class="al-feats">
+      <div class="al-feat"><div class="al-fi">⚡</div>Auto-apply — save password once, applies automatically</div>
+      <div class="al-feat"><div class="al-fi">🇮🇳</div>Internshala · Naukri · Unstop real listings</div>
+      <div class="al-feat"><div class="al-fi">📄</div>Upload resume → skills auto-detected</div>
+      <div class="al-feat"><div class="al-fi">🔔</div>Monitor new internships, auto-apply when found</div>
+    </div>
+    <div class="al-stats">
+      <div><div class="ast-n">30+</div><div class="ast-l">Categories</div></div>
+      <div><div class="ast-n">3</div><div class="ast-l">Platforms</div></div>
+      <div><div class="ast-n">100%</div><div class="ast-l">Auto-apply</div></div>
+    </div>
+  </div>
+  <div class="auth-r">
+    <div class="auth-box">
+      <div class="ar-t">Welcome to ApplyAI 👋</div>
+      <div class="ar-s">Sign in or create a free account</div>
+      <div id="aerr" class="aerr"></div>
+      <div id="aok" class="aok"></div>
+      <div class="atabs">
+        <button class="atb on" onclick="aMode('li')">Sign In</button>
+        <button class="atb" onclick="aMode('rg')">Create Account</button>
+      </div>
+      <div id="af-li" class="afrm on">
+        <div class="fg"><label class="fl">Email</label><input class="fi" type="email" id="li-em" placeholder="you@email.com" onkeydown="if(event.key==='Enter')doLogin()"/></div>
+        <div class="fg"><label class="fl">Password</label><input class="fi" type="password" id="li-pw" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()"/></div>
+        <button class="abtn" onclick="doLogin()">Sign In →</button>
+        <div class="asep">or use demo account</div>
+        <button class="demobtn" onclick="demoLogin()">👤 Demo: Laxman Kumar (CGPA 9.0, Bennett University)</button>
+      </div>
+      <div id="af-rg" class="afrm">
+        <div class="fg2">
+          <div class="fg" style="margin:0"><label class="fl">Full name *</label><input class="fi" id="rg-nm" placeholder="Your name"/></div>
+          <div class="fg" style="margin:0"><label class="fl">Email *</label><input class="fi" type="email" id="rg-em" placeholder="email"/></div>
+        </div>
+        <div class="fg2" style="margin-top:.6rem">
+          <div class="fg" style="margin:0"><label class="fl">University</label><input class="fi" id="rg-uni" placeholder="Bennett University"/></div>
+          <div class="fg" style="margin:0"><label class="fl">CGPA</label><input class="fi" id="rg-cgpa" placeholder="9.0"/></div>
+        </div>
+        <div class="fg2" style="margin-top:.6rem">
+          <div class="fg" style="margin:0"><label class="fl">Grad year</label><input class="fi" id="rg-yr" placeholder="2027"/></div>
+          <div class="fg" style="margin:0"><label class="fl">Phone</label><input class="fi" id="rg-ph" placeholder="+91…"/></div>
+        </div>
+        <div class="fg" style="margin-top:.6rem"><label class="fl">Skills (comma separated)</label><input class="fi" id="rg-sk" placeholder="Python, ML, React…"/></div>
+        <div class="fg"><label class="fl">Password * (min 6)</label><input class="fi" type="password" id="rg-pw" placeholder="••••••••" onkeydown="if(event.key==='Enter')doRegister()"/></div>
+        <button class="abtn" onclick="doRegister()">Create Account →</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- APP -->
+<div id="app">
+  <div class="topbar">
+    <a class="brand" href="#" onclick="go('search');return false"><div class="brand-ic">A</div><div class="brand-nm">ApplyAI</div></a>
+    <div class="sdot s-off" id="sdot" onclick="checkServer()">
+      <div class="sd sd-r" id="sd-dot"></div><span id="sd-txt">Checking…</span>
+    </div>
+    <div class="tb-nav">
+      <button class="tbn on" id="tbn-search" onclick="go('search')">🔍 Search</button>
+      <button class="tbn" id="tbn-saved" onclick="go('saved')">🔖 Saved<span class="nb" id="nb-s">0</span></button>
+      <button class="tbn" id="tbn-apply" onclick="go('apply')">⚡ Apply</button>
+      <button class="tbn" id="tbn-tracker" onclick="go('tracker')">📊 Tracker<span class="nb" id="nb-a">0</span></button>
+      <button class="tbn" id="tbn-resume" onclick="go('resume')">📄 Resume</button>
+      <button class="tbn" id="tbn-settings" onclick="go('settings')">⚙️ Settings</button>
+      <button class="tbn" id="tbn-ats" onclick="go('ats')">✨ ATS</button>
+    </div>
+    <button class="tb-user" onclick="go('resume')"><div class="uav" id="uav">LK</div><div class="unm" id="unm">User</div></button>
+    <button class="tb-logout" onclick="doLogout()">↩</button>
+  </div>
+
+  <div class="ctn">
+
+    <!-- SEARCH -->
+    <div id="pn-search" class="pn on">
+      <div class="hero">
+        <div class="h-top">
+          <div><div class="h-title">Find Active Internships — April 2026</div><div class="h-sub">Internshala · Naukri · Unstop · All categories</div></div>
+        </div>
+        <!-- Category quick-select -->
+        <div id="cat-grid" class="cat-grid"></div>
+        <div class="h-form">
+          <select class="hsel" id="s-query">
+            <option value="software development">💻 Software Development</option>
+            <option value="web development">🌐 Web Development</option>
+            <option value="full stack development">🌐 Full Stack</option>
+            <option value="frontend development">🖥 Frontend Dev</option>
+            <option value="backend development">⚙️ Backend Dev</option>
+            <option value="machine learning">🤖 Machine Learning</option>
+            <option value="artificial intelligence">🧠 AI</option>
+            <option value="data science">📊 Data Science</option>
+            <option value="data analyst">📈 Data Analyst</option>
+            <option value="python">🐍 Python</option>
+            <option value="java">☕ Java</option>
+            <option value="android development">📱 Android Dev</option>
+            <option value="ios development">🍎 iOS Dev</option>
+            <option value="flutter">📱 Flutter</option>
+            <option value="react">⚛️ React</option>
+            <option value="node js">🟢 Node.js</option>
+            <option value="deep learning">⚡ Deep Learning</option>
+            <option value="computer vision">👁 Computer Vision</option>
+            <option value="nlp natural language processing">💬 NLP</option>
+            <option value="generative AI LLM">🧠 GenAI / LLM</option>
+            <option value="devops cloud">☁️ DevOps / Cloud</option>
+            <option value="cybersecurity">🔒 Cybersecurity</option>
+            <option value="blockchain">⛓ Blockchain</option>
+            <option value="ui ux design">🎨 UI/UX Design</option>
+            <option value="graphic design">🎨 Graphic Design</option>
+            <option value="content writing">✍️ Content Writing</option>
+            <option value="digital marketing">📣 Digital Marketing</option>
+            <option value="social media marketing">📱 Social Media</option>
+            <option value="human resources HR">👥 HR</option>
+            <option value="business development">📈 Business Dev</option>
+            <option value="finance accounting">💰 Finance</option>
+            <option value="operations management">⚙️ Operations</option>
+            <option value="product management">📋 Product Management</option>
+            <option value="research">🔬 Research</option>
+            <option value="mechanical engineering">🔧 Mechanical Engg</option>
+            <option value="electrical engineering">⚡ Electrical Engg</option>
+            <option value="civil engineering">🏗 Civil Engg</option>
+            <option value="biotechnology">🧬 Biotechnology</option>
+            <option value="chemical engineering">⚗️ Chemical Engg</option>
+            <option value="video editing">🎬 Video Editing</option>
+            <option value="photography">📷 Photography</option>
+          </select>
+          <select class="hsel" id="s-loc">
+            <option value="India">🇮🇳 All India</option>
+            <option value="work from home">🌐 Work From Home</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Bangalore">Bangalore</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Hyderabad">Hyderabad</option>
+            <option value="Pune">Pune</option>
+            <option value="Chennai">Chennai</option>
+            <option value="Kolkata">Kolkata</option>
+            <option value="Noida">Noida / NCR</option>
+            <option value="Gurugram">Gurugram</option>
+            <option value="Ahmedabad">Ahmedabad</option>
+            <option value="Jaipur">Jaipur</option>
+          </select>
+          <select class="hsel" id="s-plat">
+            <option value="all">All Platforms</option>
+            <option value="internshala">Internshala Only</option>
+            <option value="naukri">Naukri Only</option>
+            <option value="unstop">Unstop Only</option>
+          </select>
+          <button class="hbtn" id="sbtn" onclick="runSearch()">🔍 Search</button>
+        </div>
+        <div class="qtags" id="qt-row"></div>
+      </div>
+
+      <div class="search-body">
+        <div class="fsb">
+          <div class="fsb-h"><span class="fsb-ht">Filters</span><span class="fsb-clr" onclick="clearF()">Clear</span></div>
+          <div class="fsb-s">
+            <div class="fsb-st">Work Mode</div>
+            <div class="chips">
+              <span class="chip on" data-f="wm" data-v="">All</span>
+              <span class="chip" data-f="wm" data-v="remote">Remote/WFH</span>
+              <span class="chip" data-f="wm" data-v="office">In-Office</span>
+            </div>
+          </div>
+          <div class="fsb-s">
+            <div class="fsb-st">Duration</div>
+            <div class="chips">
+              <span class="chip on" data-f="dur" data-v="">Any</span>
+              <span class="chip" data-f="dur" data-v="1">1-2 Mo</span>
+              <span class="chip" data-f="dur" data-v="3">3-6 Mo</span>
+              <span class="chip" data-f="dur" data-v="6">6+ Mo</span>
+            </div>
+          </div>
+          <div class="fsb-s">
+            <div class="fsb-st">Stipend</div>
+            <div class="chips">
+              <span class="chip on" data-f="stip" data-v="">Any</span>
+              <span class="chip" data-f="stip" data-v="paid">Paid</span>
+              <span class="chip" data-f="stip" data-v="unpaid">Unpaid/Cert</span>
+            </div>
+          </div>
+          <div class="fsb-s">
+            <div class="fsb-st">Sort By</div>
+            <select class="fsel" id="f-sort" onchange="applyF()">
+              <option value="match">Best Match</option>
+              <option value="new">Newest First</option>
+              <option value="stipend">Highest Stipend</option>
+            </select>
+          </div>
+          <div class="fsb-s" style="border:none">
+            <div class="fsb-st">Platform</div>
+            <div class="chips">
+              <span class="chip on" data-f="plat" data-v="">All</span>
+              <span class="chip" data-f="plat" data-v="Internshala">Internshala</span>
+              <span class="chip" data-f="plat" data-v="Naukri">Naukri</span>
+              <span class="chip" data-f="plat" data-v="Unstop">Unstop</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div id="slog-c" class="card" style="display:none;margin-bottom:.75rem"><div class="ctitle">Search Log</div><div class="logbox" id="slog"></div></div>
+          <div id="sres"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SAVED -->
+    <div id="pn-saved" class="pn">
+      <div class="ph" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem">
+        <div><h1 class="ph-t">Saved Internships</h1><p class="ph-s">Click any metric for details</p></div>
+        <button class="btn bp bsm" onclick="go('search')">+ Search More</button>
+      </div>
+      <div class="metrics" id="sv-met"></div>
+      <div id="sv-list"></div>
+    </div>
+
+    <!-- APPLY -->
+    <div id="pn-apply" class="pn">
+      <div class="ph"><h1 class="ph-t">Auto-Apply Engine</h1><p class="ph-s">No password prompts — saved credentials used automatically</p></div>
+      <div id="apply-server-status"></div>
+      <div class="card">
+        <div class="g3" style="margin-bottom:.75rem">
+          <div><div style="font-size:10px;font-weight:700;color:var(--tx2);margin-bottom:4px">Select role</div>
+            <select id="aa-job" style="width:100%"><option value="">— save a job first —</option></select></div>
+          <div><div style="font-size:10px;font-weight:700;color:var(--tx2);margin-bottom:4px">Tone</div>
+            <select id="aa-tone" style="width:100%"><option>Professional</option><option>Enthusiastic</option><option>Research-forward</option><option>Concise</option></select></div>
+          <div><div style="font-size:10px;font-weight:700;color:var(--tx2);margin-bottom:4px">Focus</div>
+            <select id="aa-focus" style="width:100%"><option>Research highlight</option><option>Projects highlight</option><option>CGPA + Certs</option><option>All-round</option></select></div>
+        </div>
+        <div class="g2">
+          <button class="btn bp blg bglow" onclick="smartApply(false)">⚡ Auto-Apply (No password needed)</button>
+          <button class="btn blg" style="border-color:var(--g);color:var(--g)" onclick="smartApply(true)">📧 Email Only</button>
+        </div>
+      </div>
+      <div id="aa-prog" class="card" style="display:none;margin-top:.65rem">
+        <div class="ctitle">Progress</div>
+        <div class="pbw"><div class="pb" id="aa-pb"></div></div>
+        <div class="aa-steps" id="aa-steps"></div>
+      </div>
+      <div id="aa-pkg" class="card" style="display:none;margin-top:.65rem">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem">
+          <div style="font-size:14px;font-weight:700">✅ Application Ready</div>
+          <div style="display:flex;gap:.4rem">
+            <button class="btn bsm" onclick="cp('aa-email')">📋 Email</button>
+            <button class="btn bsm" onclick="cp('aa-cover')">📋 Cover</button>
+          </div>
+        </div>
+        <div class="itabs">
+          <button class="itab on" onclick="itab('email')">Email</button>
+          <button class="itab" onclick="itab('cover')">Cover Letter</button>
+          <button class="itab" onclick="itab('links')">Submit Links</button>
+        </div>
+        <div id="it-email" class="itabp on">
+          <div style="font-size:10px;font-weight:700;color:var(--tx2);margin-bottom:4px">Subject</div>
+          <input class="inp" id="aa-subj" style="width:100%;margin-bottom:.6rem" readonly/>
+          <textarea id="aa-email" rows="10"></textarea>
+        </div>
+        <div id="it-cover" class="itabp"><textarea id="aa-cover" rows="12"></textarea></div>
+        <div id="it-links" class="itabp">
+          <p style="font-size:12px;color:var(--tx2);margin-bottom:.65rem">Email auto-copied when you click. Paste (Ctrl+V) and submit.</p>
+          <div id="dl-links"></div>
+        </div>
+        <div style="display:flex;gap:.4rem;margin-top:.65rem;flex-wrap:wrap">
+          <button class="btn bsm" style="border-color:var(--g);color:var(--g)" onclick="markApplied()">✓ Mark Applied</button>
+        </div>
+        <p id="cpmsg" style="font-size:11px;color:var(--g);display:none;margin-top:5px;font-weight:600">✓ Copied!</p>
+      </div>
+    </div>
+
+    <!-- TRACKER -->
+    <div id="pn-tracker" class="pn">
+      <div class="ph"><h1 class="ph-t">Application Tracker</h1><p class="ph-s">Click any card for details</p></div>
+      <div class="metrics" id="tr-met"></div>
+      <div id="tr-list"></div>
+      <!-- Server log -->
+      <div class="card" style="margin-top:.75rem" id="server-log-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.65rem">
+          <div class="ctitle" style="margin:0">Auto-Apply Log (from server)</div>
+          <button class="btn bsm" onclick="loadServerLog()">Refresh</button>
+        </div>
+        <div id="server-log-list"><p style="font-size:12px;color:var(--tx2)">Start server to see auto-apply logs</p></div>
+      </div>
+    </div>
+
+    <!-- RESUME -->
+    <div id="pn-resume" class="pn">
+      <div class="ph"><h1 class="ph-t">Resume &amp; Skills</h1><p class="ph-s">Upload PDF → skills auto-detected → select to search internships</p></div>
+      <div class="g2" style="align-items:start">
+        <div>
+          <div class="card">
+            <div class="ctitle">Upload Resume (PDF)</div>
+            <div class="upz" id="upz">
+              <input type="file" id="res-f" accept=".pdf" onchange="uploadPDF(event)"/>
+              <div style="font-size:28px;margin-bottom:.5rem" id="up-ic">📄</div>
+              <div style="font-size:13px;font-weight:700;margin-bottom:.2rem" id="up-t">Drop PDF here or click to browse</div>
+              <div style="font-size:11px;color:var(--tx2)" id="up-s">PDF only · max 5MB · skills auto-detected</div>
+            </div>
+          </div>
+
+          <!-- AUTO SKILL DETECTION -->
+          <div id="skill-detect-card" class="card" style="display:none;margin-top:.65rem;border-color:var(--g3)">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.65rem">
+              <div class="ctitle" style="margin:0">✅ Skills Detected from Resume</div>
+              <button class="btn bp bsm" onclick="searchBySelectedSkills()">Search Internships →</button>
+            </div>
+            <p style="font-size:11px;color:var(--tx2);margin-bottom:.65rem">Select the skills you want to search internships for:</p>
+            <div class="skill-chips" id="auto-skill-chips"></div>
+            <div style="margin-top:.75rem;display:flex;gap:.4rem;flex-wrap:wrap">
+              <button class="btn bsm" onclick="selectAllSkills()">Select All</button>
+              <button class="btn bsm" onclick="clearAllSkills()">Clear All</button>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:.65rem">
+            <div class="ctitle">Manual Skill Search</div>
+            <div style="display:flex;gap:.5rem;margin-bottom:.5rem;flex-wrap:wrap">
+              <input class="inp" id="sk-inp" placeholder="Python, React, ML…" style="flex:1;min-width:140px"/>
+              <button class="btn bg2 bsm" onclick="manualSkillSearch()">Find Internships</button>
+            </div>
+            <div id="sk-res"></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="card">
+            <div class="ctitle">Your Profile</div>
+            <div id="prof-view"></div>
+            <div class="dv"></div>
+            <div style="display:flex;flex-direction:column;gap:.4rem">
+              <button class="btn bp bfull" onclick="go('ats')">✨ Generate ATS Resume</button>
+              <button class="btn bfull" onclick="go('search')">🔍 Browse All Internships</button>
+            </div>
+          </div>
+
+          <div id="res-parsed" class="card" style="display:none;margin-top:.65rem">
+            <div class="ctitle" style="display:flex;justify-content:space-between">
+              <span>Parsed Resume</span><span style="font-size:10px;color:var(--g);font-weight:700;background:var(--gb);padding:2px 7px;border-radius:var(--rx)">✓ Active</span>
+            </div>
+            <div id="res-content"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SETTINGS -->
+    <div id="pn-settings" class="pn">
+      <div class="ph"><h1 class="ph-t">Settings &amp; Saved Passwords</h1><p class="ph-s">Save once — auto-apply uses credentials automatically</p></div>
+
+      <div class="card" style="margin-bottom:.65rem">
+        <div class="ctitle">Platform Credentials</div>
+        <p style="font-size:12px;color:var(--tx2);margin-bottom:.85rem">Save your login details for each platform. Encrypted and stored locally. Auto-apply will use these without asking.</p>
+        <div id="creds-status" style="margin-bottom:.75rem"></div>
+
+        <div style="display:grid;gap:.75rem">
+          <!-- Internshala -->
+          <div style="border:1.5px solid var(--br2);border-radius:var(--rs);padding:.85rem">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:.65rem">
+              <span style="font-size:18px">🎓</span>
+              <div style="font-size:13px;font-weight:700">Internshala</div>
+              <span id="cred-internshala" class="cred-badge cb-no">Not saved</span>
+            </div>
+            <div class="g2">
+              <input class="inp" id="is-em" placeholder="Internshala email" style="width:100%"/>
+              <input class="inp" type="password" id="is-pw" placeholder="Password" style="width:100%"/>
+            </div>
+            <button class="btn bp bsm" style="margin-top:.5rem" onclick="saveCred('internshala','is-em','is-pw')">💾 Save Internshala Password</button>
+          </div>
+
+          <!-- LinkedIn -->
+          <div style="border:1.5px solid var(--br2);border-radius:var(--rs);padding:.85rem">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:.65rem">
+              <span style="font-size:18px">💼</span>
+              <div style="font-size:13px;font-weight:700">LinkedIn</div>
+              <span id="cred-linkedin" class="cred-badge cb-no">Not saved</span>
+            </div>
+            <div class="g2">
+              <input class="inp" id="li2-em" placeholder="LinkedIn email" style="width:100%"/>
+              <input class="inp" type="password" id="li2-pw" placeholder="Password" style="width:100%"/>
+            </div>
+            <button class="btn bp bsm" style="margin-top:.5rem" onclick="saveCred('linkedin','li2-em','li2-pw')">💾 Save LinkedIn Password</button>
+          </div>
+
+          <!-- Naukri -->
+          <div style="border:1.5px solid var(--br2);border-radius:var(--rs);padding:.85rem">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:.65rem">
+              <span style="font-size:18px">💼</span>
+              <div style="font-size:13px;font-weight:700">Naukri</div>
+              <span id="cred-naukri" class="cred-badge cb-no">Not saved</span>
+            </div>
+            <div class="g2">
+              <input class="inp" id="nk-em" placeholder="Naukri email" style="width:100%"/>
+              <input class="inp" type="password" id="nk-pw" placeholder="Password" style="width:100%"/>
+            </div>
+            <button class="btn bp bsm" style="margin-top:.5rem" onclick="saveCred('naukri','nk-em','nk-pw')">💾 Save Naukri Password</button>
+          </div>
+
+          <!-- Unstop -->
+          <div style="border:1.5px solid var(--br2);border-radius:var(--rs);padding:.85rem">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:.65rem">
+              <span style="font-size:18px">🏆</span>
+              <div style="font-size:13px;font-weight:700">Unstop</div>
+              <span id="cred-unstop" class="cred-badge cb-no">Not saved</span>
+            </div>
+            <div class="g2">
+              <input class="inp" id="un-em" placeholder="Unstop email" style="width:100%"/>
+              <input class="inp" type="password" id="un-pw" placeholder="Password" style="width:100%"/>
+            </div>
+            <button class="btn bp bsm" style="margin-top:.5rem" onclick="saveCred('unstop','un-em','un-pw')">💾 Save Unstop Password</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Monitor -->
+      <div class="card">
+        <div class="ctitle">Auto-Monitor New Internships</div>
+        <p style="font-size:12px;color:var(--tx2);margin-bottom:.75rem">Server checks Internshala every 30 minutes. If auto-apply is ON, it applies automatically when new listings appear.</p>
+        <div class="g2" style="margin-bottom:.65rem">
+          <div><div style="font-size:10px;font-weight:700;color:var(--tx2);margin-bottom:4px">Search query</div>
+            <input class="inp" id="mon-query" placeholder="machine learning" style="width:100%"/></div>
+          <div><div style="font-size:10px;font-weight:700;color:var(--tx2);margin-bottom:4px">Category</div>
+            <input class="inp" id="mon-cat" placeholder="AI/ML" style="width:100%"/></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.65rem;flex-wrap:wrap">
+          <label style="display:flex;align-items:center;gap:5px;font-size:12px;font-weight:500;cursor:pointer">
+            <input type="checkbox" id="mon-auto" style="width:14px;height:14px"/>
+            Auto-apply when new internship found
+          </label>
+        </div>
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap">
+          <button class="btn bp bsm" onclick="startMonitor()">▶ Start Monitor</button>
+          <button class="btn bsm" onclick="stopMonitor()">⏹ Stop Monitor</button>
+          <div id="mon-status" style="font-size:11px;color:var(--tx2);padding:4px 8px;background:var(--bg);border-radius:var(--rs)">Not running</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ATS -->
+    <div id="pn-ats" class="pn">
+      <div class="ph"><h1 class="ph-t">ATS Resume Generator</h1><p class="ph-s">Keyword-optimized plain-text resume for Internshala, Naukri, LinkedIn</p></div>
+      <div class="card">
+        <div class="g3" style="margin-bottom:.65rem">
+          <div><div style="font-size:10px;font-weight:700;color:var(--tx2);margin-bottom:4px">Target Role</div><input class="inp" id="ats-role" placeholder="ML Intern, SDE Intern…" style="width:100%"/></div>
+          <div><div style="font-size:10px;font-weight:700;color:var(--tx2);margin-bottom:4px">Style</div><select id="ats-style" style="width:100%"><option>Standard ATS</option><option>Technical Focus</option><option>Research Focus</option><option>Non-tech (HR/Marketing)</option></select></div>
+          <div><div style="font-size:10px;font-weight:700;color:var(--tx2);margin-bottom:4px">Length</div><select id="ats-len" style="width:100%"><option>1 Page</option><option>2 Pages</option></select></div>
+        </div>
+        <button class="btn bp bfull bglow" id="ats-btn" onclick="genATS()">✨ Generate ATS Resume</button>
+      </div>
+      <div id="ats-log-c" class="card" style="display:none;margin-top:.65rem"><div class="ctitle">Log</div><div class="logbox" id="ats-log"></div></div>
+      <div id="ats-out-c" class="card" style="display:none;margin-top:.65rem">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.65rem">
+          <div style="font-size:14px;font-weight:700">ATS Resume Ready</div>
+          <div style="display:flex;gap:.4rem"><button class="btn bsm" onclick="cp('ats-body')">📋 Copy</button><button class="btn bg2 bsm" onclick="dlATS()">⬇ .txt</button></div>
+        </div>
+        <div class="ats-pre" id="ats-body"></div>
+        <div class="gbox" style="margin-top:.65rem">Paste into Internshala, Naukri, LinkedIn, Workday — scores highest on ATS parsers.</div>
+      </div>
+    </div>
+
+  </div><!-- container -->
+</div><!-- app -->
+
+<!-- MODALS -->
+<div class="ov" id="ov-met"><div class="modal"><div class="mh"><div class="mt2" id="ovm-t">Details</div><button class="mcl" onclick="cov('ov-met')">✕</button></div><div id="ovm-b" style="max-height:60vh;overflow-y:auto"></div></div></div>
+<div class="ov" id="ov-job"><div class="modal"><div class="mh"><div class="mt2" id="ovj-t">Details</div><button class="mcl" onclick="cov('ov-job')">✕</button></div><div id="ovj-b"></div></div></div>
+
+<script>
+/* ═══════════════════════════════
+   CONFIG
+═══════════════════════════════ */
+//const GK=//"enter api key here"; // Get from https://groq.com/account/api-keys  
+//const GU="https://api.groq.com/openai/v1/chat/completions";
+//const GM="llama-3.3-70b-versatile";
+// const SRV="http://localhost:8000"; 
+
+let serverOn=false, U=null, SC=[], CJ=null;
+let filters={wm:"",dur:"",stip:"",plat:""};
+let autoSkills=[];
+let selectedSkills=new Set();
+
+/* ═══════════════════════════════
+   GROQ
+═══════════════════════════════ */
+async function groq(sys,usr,max=2800){
+  const r=await fetch(GU,{method:"POST",
+    headers:{"Content-Type":"application/json","Authorization":"Bearer "+GK},
+    body:JSON.stringify({model:GM,max_tokens:max,temperature:.7,
+      messages:[{role:"system",content:sys},{role:"user",content:usr}]})});
+  if(!r.ok) throw new Error("Groq "+r.status);
+  return (await r.json()).choices[0].message.content;
+}
+
+/* ═══════════════════════════════
+   SERVER
+═══════════════════════════════ */
+async function checkServer(){
+  try{
+    const r=await fetch(SRV+"/ping",{signal:AbortSignal.timeout(2000)});
+    if(r.ok){serverOn=true;setSrv(true);return true;}
+  }catch(e){}
+  serverOn=false;setSrv(false);return false;
+}
+function setSrv(on){
+  const d=document.getElementById("sdot"),t=document.getElementById("sd-txt"),dot=document.getElementById("sd-dot");
+  d.className="sdot "+(on?"s-on":"s-off");
+  t.textContent=on?"Agent connected — auto-apply ready":"Agent offline (run server.py)";
+  dot.className="sd "+(on?"sd-g":"sd-r");
+  const sc=document.getElementById("apply-server-status");
+  if(sc) sc.innerHTML=on?
+    `<div class="gbox" style="margin-bottom:.65rem;display:flex;gap:8px;align-items:center"><span>✅</span><div><strong>Agent connected</strong> — auto-apply will use saved passwords automatically. No prompts.</div></div>`:
+    `<div class="obox" style="margin-bottom:.65rem"><strong>⚠️ Agent offline</strong> — start the server: <code style="background:rgba(0,0,0,.08);padding:2px 8px;border-radius:4px">python server.py</code><br/><span style="font-size:11px">Without server, email is generated and you paste it manually</span></div>`;
+  if(on) loadCredentialStatus();
+}
+
+/* ═══════════════════════════════
+   DATABASE
+═══════════════════════════════ */
+const DB={
+  _u(){return JSON.parse(localStorage.getItem("a5_users")||"[]")},
+  _wu(d){localStorage.setItem("a5_users",JSON.stringify(d))},
+  cur(){return JSON.parse(localStorage.getItem("a5_cur")||"null")},
+  setCur(u){localStorage.setItem("a5_cur",JSON.stringify(u))},
+  clr(){localStorage.removeItem("a5_cur")},
+  sv(id){return JSON.parse(localStorage.getItem("a5_sv_"+id)||"[]")},
+  wsv(id,d){localStorage.setItem("a5_sv_"+id,JSON.stringify(d))},
+  ap(id){return JSON.parse(localStorage.getItem("a5_ap_"+id)||"[]")},
+  wap(id,d){localStorage.setItem("a5_ap_"+id,JSON.stringify(d))},
+  res(id){return localStorage.getItem("a5_res_"+id)||""},
+  wres(id,t){localStorage.setItem("a5_res_"+id,t)},
+  reg(u){const us=DB._u();if(us.find(x=>x.email===u.email))return false;us.push(u);DB._wu(us);return true;},
+  login(em,pw){return DB._u().find(u=>u.email===em&&u.password===pw)||null}
+};
+
+// Demo seed
+if(!DB._u().find(u=>u.email==="laxman**********gmail.com")){
+  DB.reg({id:"demo",name:"Laxman Kumar",email:"laxmanxxxxxxxxx@gmail.com",password:"xxxxx",phone:"+91 xxxxxxxxx",university:"Bennett University, Greater Noida",cgpa:"9.5",year:"2027",skills:"Python,C++,PyTorch,YOLOv8,OpenCV,Deep Learning,Computer Vision,LLM,GenAI,AI Agents,NLP,Machine Learning,Full Stack,Data Science",research:"DeepFake Detection 90.66% accuracy WildDeepFake — Attention→EfficientNet→SE",projects:"Smart Traffic Management YOLOv8+OpenCV+NEAT; Carefolio AI Healthcare Platform",achievements:"SIH 2025 Rank 68/Top 100; 250+ LeetCode C++; DeepLearning.AI certified"});
+}
+
+/* ═══════════════════════════════
+   AUTH
+═══════════════════════════════ */
+function aMode(m){
+  document.querySelectorAll(".atb").forEach((t,i)=>t.classList.toggle("on",["li","rg"][i]===m));
+  document.querySelectorAll(".afrm").forEach((f,i)=>f.classList.toggle("on",["li","rg"][i]===m));
+  document.getElementById("aerr").style.display="none";
+  document.getElementById("aok").style.display="none";
+}
+function aerr(msg){const e=document.getElementById("aerr");e.textContent=msg;e.style.display="block";document.getElementById("aok").style.display="none";}
+function aok(msg){const e=document.getElementById("aok");e.textContent=msg;e.style.display="block";document.getElementById("aerr").style.display="none";}
+function doLogin(){
+  const em=document.getElementById("li-em").value.trim(),pw=document.getElementById("li-pw").value;
+  if(!em||!pw){aerr("Please enter email and password.");return;}
+  const u=DB.login(em,pw);
+  if(!u){aerr("Invalid email or password.");return;}
+  DB.setCur(u);U=u;showApp();
+}
+function doRegister(){
+  const nm=document.getElementById("rg-nm").value.trim(),em=document.getElementById("rg-em").value.trim(),pw=document.getElementById("rg-pw").value;
+  if(!nm){aerr("Full name required.");return;}
+  if(!em||!em.includes("@")){aerr("Valid email required.");return;}
+  if(pw.length<6){aerr("Password min 6 characters.");return;}
+  const u={id:Date.now().toString(),name:nm,email:em,password:pw,
+    phone:document.getElementById("rg-ph").value.trim(),
+    university:document.getElementById("rg-uni").value.trim(),
+    cgpa:document.getElementById("rg-cgpa").value.trim(),
+    year:document.getElementById("rg-yr").value.trim(),
+    skills:document.getElementById("rg-sk").value.trim(),
+    research:"",projects:"",achievements:""};
+  if(!DB.reg(u)){aerr("Email already registered.");return;}
+  aok("Account created!");
+  setTimeout(()=>{DB.setCur(u);U=u;showApp();},500);
+}
+function demoLogin(){const u=DB.login("laxman*************gmail.com","demo123");if(u){DB.setCur(u);U=u;showApp();}}
+function doLogout(){DB.clr();U=null;document.getElementById("app").classList.remove("on");document.getElementById("auth").classList.remove("gone");}
+function showApp(){
+  document.getElementById("auth").classList.add("gone");
+  document.getElementById("app").classList.add("on");
+  const ini=U.name.split(" ").map(w=>w[0]).join("").slice(0,2).toUpperCase();
+  document.getElementById("uav").textContent=ini;
+  document.getElementById("unm").textContent=U.name.split(" ")[0];
+  updBadges(); buildCatGrid(); buildQTags(); renderProfile();
+  checkServer(); setInterval(checkServer,30000);
+  // Load resume if exists
+  const rt=DB.res(U.id);
+  if(rt){showParsed(rt);autoDetectSkills(rt);}
+}
+function boot(){U=DB.cur();if(U)showApp();}
+
+/* ═══════════════════════════════
+   TABS
+═══════════════════════════════ */
+function go(t){
+  ["search","saved","apply","tracker","resume","settings","ats"].forEach(x=>{
+    document.getElementById("pn-"+x).classList.toggle("on",x===t);
+    const b=document.getElementById("tbn-"+x);if(b)b.classList.toggle("on",x===t);
+  });
+  if(t==="saved")renderSaved();
+  if(t==="apply"){fillAASelect();if(serverOn)loadCredentialStatus();}
+  if(t==="tracker"){renderTracker();loadServerLog();}
+  if(t==="resume")renderProfile();
+  if(t==="settings")loadCredentialStatus();
+}
+function updBadges(){if(!U)return;document.getElementById("nb-s").textContent=DB.sv(U.id).length;document.getElementById("nb-a").textContent=DB.ap(U.id).length;}
+
+/* ═══════════════════════════════
+   CATEGORY GRID
+═══════════════════════════════ */
+const CATS=[
+  {label:"💻 Software Dev",q:"software development"},{label:"🌐 Web Dev",q:"web development"},
+  {label:"🤖 AI/ML",q:"machine learning"},{label:"📊 Data Science",q:"data science"},
+  {label:"📱 Android",q:"android development"},{label:"🎨 UI/UX",q:"ui ux design"},
+  {label:"📣 Marketing",q:"digital marketing"},{label:"👥 HR",q:"human resources HR"},
+  {label:"💰 Finance",q:"finance accounting"},{label:"✍️ Content",q:"content writing"},
+  {label:"⚡ Deep Learning",q:"deep learning"},{label:"🔬 Research",q:"research"},
+];
+function buildCatGrid(){
+  document.getElementById("cat-grid").innerHTML=CATS.map(c=>
+    `<button class="cat-btn" onclick="quickCat('${c.q}')">${c.label}</button>`
+  ).join("");
+}
+function quickCat(q){
+  document.getElementById("s-query").value=q;
+  runSearch();
+}
+function buildQTags(){
+  document.getElementById("qt-row").innerHTML=
+    ["Software Dev","Web Dev","Data Science","Android","AI/ML","HR","Finance","WFH Only","Startup"].map(t=>
+      `<span class="qt" onclick="quickTag('${t}')">${t}</span>`
+    ).join("");
+}
+function quickTag(t){
+  const qm={"Software Dev":"software development","Web Dev":"web development","Data Science":"data science","Android":"android development","AI/ML":"machine learning","HR":"human resources HR","Finance":"finance accounting","WFH Only":"work from home","Startup":"startup"};
+  if(qm[t]) document.getElementById("s-query").value=qm[t];
+  if(t==="WFH Only") document.getElementById("s-loc").value="work from home";
+  runSearch();
+}
+
+/* ═══════════════════════════════
+   SEARCH — uses server scraping + Groq fallback
+═══════════════════════════════ */
+function al(id,cls,msg){const e=document.getElementById(id);if(e){e.innerHTML+=`<div><span class="${cls}">${msg}</span></div>`;e.scrollTop=e.scrollHeight;}}
+const wait=ms=>new Promise(r=>setTimeout(r,ms));
+
+async function runSearch(){
+  const query=document.getElementById("s-query").value;
+  const loc=document.getElementById("s-loc").value;
+  const platSel=document.getElementById("s-plat").value;
+  const btn=document.getElementById("sbtn");
+
+  btn.disabled=true;btn.textContent="⏳ Searching…";
+  document.getElementById("slog-c").style.display="block";
+  document.getElementById("slog").innerHTML="";
+  document.getElementById("sres").innerHTML=`<div style="text-align:center;padding:2rem;color:var(--tx2)"><div class="sp" style="width:28px;height:28px;border-width:3px;margin:0 auto"></div><p style="margin-top:.75rem">Searching Internshala · Naukri · Unstop…</p></div>`;
+
+  al("slog","lru",`[search] "${query}" · ${loc} · ${platSel}`);
+
+  const platforms=platSel==="all"?["internshala","naukri","unstop"]:[platSel];
+  let jobs=[];
+
+  // Try server scraping first
+  if(serverOn){
+    al("slog","lru","[server] scraping real listings from Internshala, Naukri, Unstop…");
+    try{
+      const r=await fetch(SRV+"/search",{method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({query,category:query,location:loc,user_id:U.id,platforms})});
+      if(r.ok){
+        const d=await r.json();
+        jobs=d.jobs||[];
+        al("slog","lok",`[server] scraped ${jobs.length} real listings`);
+      }
+    }catch(e){al("slog","lw","[server] scrape error — using AI fallback");}
+  }
+
+  // Groq fallback or supplement
+  if(jobs.length<5){
+    al("slog","lai","[groq] generating additional listings via AI…");
+    try{
+      const sk=(U?.skills||"Python").split(",").slice(0,5).join(", ");
+      const sys=`Internship search agent for India April 2026. You know REAL listings on Internshala, Naukri, Unstop. Include ALL categories — not just tech. Return ONLY raw JSON array.`;
+      const usr=`Find 8 active internship listings in India for April 2026:
+Query: ${query}
+Location: ${loc}
+
+Include a MIX: top companies AND local Indian companies AND startups.
+For non-tech roles (HR, Marketing, Finance etc.) include relevant companies.
+
+Candidate: ${U?.name||"Student"}, CGPA ${U?.cgpa||"8.0"}, Skills: ${sk}
+
+Return ONLY: [{"id":"uniq","title":"","company":"","companyType":"local|startup|mnc","location":"","workMode":"Remote|In-Office|Hybrid","stipend":"","duration":"","skills":[],"deadline":"April/May 2026","posted":"April 2026","match":88,"why":"","source":"Internshala|Naukri|Unstop","applyUrl":"direct URL","isLocal":true,"hot":false,"category":"${query}"}]`;
+      const txt=await groq(sys,usr,3500);
+      let aj=[];
+      try{const m=txt.match(/\[[\s\S]*?\]/);if(m)aj=JSON.parse(m[0]);}catch(e){}
+      jobs=[...jobs,...aj];
+      al("slog","lok",`[groq] added ${aj.length} listings`);
+    }catch(e){al("slog","le","[groq] "+e.message);}
+  }
+
+  if(!jobs.length) jobs=getGroqFallback(query,loc);
+  // Score against user skills
+  const userSk=(U?.skills||"").toLowerCase();
+  jobs=jobs.map(j=>({
+    ...j,
+    match:j.match||calcMatch(j.skills||[],userSk)
+  }));
+
+  al("slog","lok",`[done] ${jobs.length} internships for "${query}"`);
+  SC=jobs; renderResults(jobs);
+
+  btn.disabled=false;btn.textContent="🔍 Search";
+}
+
+function calcMatch(skills,userSkills){
+  if(!skills.length) return 75;
+  const hits=skills.filter(s=>userSkills.includes(s.toLowerCase())).length;
+  return Math.min(97,70+Math.round((hits/skills.length)*27));
+}
+function rc(n){return n>=93?"mr-t":n>=82?"mr-h":"mr-m";}
+
+function renderResults(jobs){
+  const el=document.getElementById("sres");
+  if(!jobs.length){el.innerHTML='<div style="text-align:center;padding:2rem;color:var(--tx2)">No results found. Try a different query.</div>';return;}
+  const sv=DB.sv(U?.id||""),ap=DB.ap(U?.id||"");
+  let f=[...jobs];
+  if(filters.wm==="remote") f=f.filter(j=>(j.workMode||j.location||"").toLowerCase().includes("remote")||(j.workMode||"").toLowerCase().includes("home"));
+  if(filters.wm==="office") f=f.filter(j=>(j.workMode||"").toLowerCase().includes("office")||(j.workMode||"").toLowerCase().includes("in-"));
+  if(filters.plat) f=f.filter(j=>j.source?.toLowerCase().includes(filters.plat.toLowerCase()));
+  if(filters.stip==="paid") f=f.filter(j=>!j.stipend?.toLowerCase().includes("unpaid")&&!j.stipend?.toLowerCase().includes("cert"));
+  const sort=document.getElementById("f-sort")?.value||"match";
+  if(sort==="match") f.sort((a,b)=>b.match-a.match);
+  else if(sort==="new") f.sort((a,b)=>(b.posted||"").localeCompare(a.posted||""));
+
+  el.innerHTML=`<div style="font-size:11px;color:var(--tx2);margin-bottom:.65rem;font-weight:500">${f.length} internships found on Internshala · Naukri · Unstop</div>`+
+    f.map((j,i)=>{
+      const saved=sv.find(s=>s.title===j.title&&s.company===j.company);
+      const applied=ap.find(a=>a.title===j.title&&a.company===j.company);
+      const isLocal=j.isLocal||j.companyType==="local"||j.companyType==="startup";
+      const isResearch=j.companyType==="research"||j.title?.toLowerCase().includes("research");
+      const isHR=j.category?.includes("HR")||j.category?.includes("hr")||j.title?.toLowerCase().includes("hr")||j.title?.toLowerCase().includes("human resource");
+      const barClass=isResearch?"jc-research":isLocal?"jc-local":"jc-ai";
+      const logoClass=isHR?"co-logo hr":isResearch?"co-logo re":isLocal?"co-logo lo":"co-logo";
+      return `<div class="jcard ${applied?"jc-applied":barClass}">
+        <div class="jcard-bar"></div>
+        <div class="jcard-h">
+          <div class="${logoClass}">${j.company?.charAt(0)||"?"}</div>
+          <div class="jcard-inf">
+            <div class="jcard-t">${j.title}
+              ${j.hot?'<span class="jtag jt-hot">🔥 Hot</span>':''}
+              ${j.match>=93?'<span class="jtag jt-top">⭐ Top</span>':''}
+              ${isLocal?'<span class="jtag jt-local">🇮🇳</span>':''}
+              ${applied?'<span class="jtag" style="background:var(--gb);color:var(--g)">✓ Applied</span>':''}
+            </div>
+            <div class="jcard-co">${j.company}</div>
+            <div class="jcard-meta">
+              <span class="jm">📍 ${j.location||"India"}</span>
+              ${j.workMode?`<span class="jm">${j.workMode==="Remote"||j.workMode==="Work From Home"?"🌐":"🏢"} ${j.workMode}</span>`:""}
+              <span class="jm">💰 ${j.stipend||"Check listing"}</span>
+              <span class="jm">⏳ ${j.duration||"2-3 Mo"}</span>
+            </div>
+          </div>
+          <div class="mring ${rc(j.match)}" style="--p2:${j.match}"><div class="mring-in">${j.match}%</div></div>
+        </div>
+        <div class="jcard-tags">
+          ${(j.skills||[]).slice(0,4).map(s=>`<span class="jtag jt-s">${s}</span>`).join("")}
+          <span class="jtag jt-src">via ${j.source||"Web"}</span>
+          <span class="jtag jt-dl">⏰ ${j.deadline||"Apply Now"}</span>
+        </div>
+        <div class="jcard-why">💡 ${j.why||"Matches your profile"}</div>
+        <div class="jcard-f">
+          <div class="jcard-st">
+            <div class="dot ${applied?"dot-p":isLocal?"dot-o":"dot-g"}"></div>
+            <span style="color:${applied?"var(--p)":isLocal?"var(--o)":"var(--g)"}">${applied?"Applied ✓":isLocal?"Indian Co.":"Active 2026"}</span>
+          </div>
+          <div class="row">
+            ${j.applyUrl&&j.applyUrl.startsWith("http")?`<a href="${j.applyUrl}" target="_blank" class="btn bsm">View ↗</a>`:""}
+            <button class="btn bsm" id="svb-${i}" ${saved?"disabled":""} onclick="saveJob(${i})">${saved?"✓ Saved":"🔖 Save"}</button>
+            <button class="btn bp bsm" onclick="qApply(${i})">⚡ Apply</button>
+          </div>
+        </div>
+      </div>`;
+    }).join("");
+}
+
+function applyF(){if(SC.length)renderResults(SC);}
+function clearF(){filters={wm:"",dur:"",stip:"",plat:""};document.querySelectorAll(".chip").forEach(c=>c.classList.toggle("on",c.dataset.v===""));if(SC.length)renderResults(SC);}
+document.querySelectorAll(".chip").forEach(c=>c.addEventListener("click",function(){
+  const f=this.dataset.f,v=this.dataset.v;
+  document.querySelectorAll(`.chip[data-f="${f}"]`).forEach(x=>x.classList.remove("on"));
+  this.classList.add("on");
+  filters[f]=v;
+  if(SC.length)renderResults(SC);
+}));
+
+/* ═══════════════════════════════
+   SKILL SEARCH
+═══════════════════════════════ */
+async function manualSkillSearch(){
+  const sk=document.getElementById("sk-inp").value.trim();
+  if(!sk){flash("Enter skills to search");return;}
+  document.getElementById("s-query").value=sk.split(",")[0].trim();
+  go("search");
+  await wait(100);
+  runSearch();
+}
+
+function searchBySelectedSkills(){
+  if(selectedSkills.size===0){flash("Select at least one skill");return;}
+  const sk=Array.from(selectedSkills).join(",");
+  document.getElementById("sk-inp").value=sk;
+  document.getElementById("s-query").value=Array.from(selectedSkills)[0];
+  go("search");
+  setTimeout(()=>runSearch(),100);
+}
+
+/* ═══════════════════════════════
+   SAVE / APPLY
+═══════════════════════════════ */
+function saveJob(i){
+  if(!U)return;
+  const j=SC[i];if(!j)return;
+  const sv=DB.sv(U.id);
+  if(!sv.find(s=>s.title===j.title&&s.company===j.company)){
+    sv.push({...j,savedDate:new Date().toLocaleDateString("en-IN",{day:"numeric",month:"short"})});
+    DB.wsv(U.id,sv);updBadges();
+  }
+  const b=document.getElementById("svb-"+i);if(b){b.textContent="✓ Saved";b.disabled=true;}
+  flash("Saved!");
+}
+function qApply(i){
+  if(!U)return;
+  const j=SC[i];if(!j)return;
+  const sv=DB.sv(U.id);
+  if(!sv.find(s=>s.title===j.title&&s.company===j.company)){
+    sv.push({...j,savedDate:new Date().toLocaleDateString("en-IN",{day:"numeric",month:"short"})});
+    DB.wsv(U.id,sv);updBadges();
+  }
+  CJ=j;go("apply");fillAASelect();
+  const sel=document.getElementById("aa-job");
+  const opt=Array.from(sel.options).find(o=>o.text.includes(j.company));
+  if(opt) sel.value=opt.value;
+}
+
+/* ═══════════════════════════════
+   SAVED PANEL
+═══════════════════════════════ */
+function renderSaved(){
+  if(!U)return;
+  const sv=DB.sv(U.id),ap=DB.ap(U.id);
+  const pend=sv.filter(j=>!ap.find(a=>a.title===j.title&&a.company===j.company));
+  const avg=sv.length?Math.round(sv.reduce((s,j)=>s+j.match,0)/sv.length):0;
+  document.getElementById("sv-met").innerHTML=`
+    <div class="met mp" onclick="showMet('saved')"><div class="mv">${sv.length}</div><div class="ml">Saved</div><div class="ms">View →</div></div>
+    <div class="met mt" onclick="showMet('applied')"><div class="mv">${ap.length}</div><div class="ml">Applied</div><div class="ms">View →</div></div>
+    <div class="met ma" onclick="showMet('pending')"><div class="mv">${pend.length}</div><div class="ml">Pending</div><div class="ms">Apply →</div></div>
+    <div class="met mb" onclick="showMet('match')"><div class="mv">${avg}%</div><div class="ml">Avg match</div><div class="ms">Details →</div></div>`;
+  const el=document.getElementById("sv-list");
+  if(!sv.length){el.innerHTML='<div style="text-align:center;padding:2rem;color:var(--tx2)">No saved jobs. <button class="btn bp bsm" onclick="go(\'search\')" style="margin-left:.5rem">Search Now</button></div>';return;}
+  el.innerHTML=sv.map((j,i)=>{
+    const app=ap.find(a=>a.title===j.title&&a.company===j.company);
+    const isLocal=j.isLocal||j.companyType==="local"||j.companyType==="startup";
+    return `<div class="jcard ${app?"jc-applied":isLocal?"jc-local":"jc-ai"}">
+      <div class="jcard-bar"></div>
+      <div class="jcard-h">
+        <div class="${isLocal?"co-logo lo":"co-logo"}">${j.company?.charAt(0)||"?"}</div>
+        <div class="jcard-inf">
+          <div class="jcard-t">${j.title}${isLocal?' <span class="jtag jt-local">🇮🇳</span>':''}${app?' <span class="jtag" style="background:var(--gb);color:var(--g)">✓</span>':''}</div>
+          <div class="jcard-co">${j.company}</div>
+          <div class="jcard-meta"><span class="jm">📍 ${j.location||"India"}</span><span class="jm">💰 ${j.stipend||"—"}</span><span class="jm">📅 ${j.savedDate}</span></div>
+        </div>
+        <div class="mring ${rc(j.match)}" style="--p2:${j.match}"><div class="mring-in">${j.match}%</div></div>
+      </div>
+      <div class="jcard-tags">${(j.skills||[]).slice(0,3).map(s=>`<span class="jtag jt-s">${s}</span>`).join("")}<span class="jtag jt-dl">⏰ ${j.deadline||"Apply Now"}</span></div>
+      <div class="jcard-f">
+        <span class="jcard-st"><div class="dot ${app?"dot-p":"dot-g"}"></div><span>${app?"Applied":"Saved"}</span></span>
+        <div class="row">
+          <button class="btn bsm" onclick="openJobOv(${i})">Details</button>
+          ${j.applyUrl&&j.applyUrl.startsWith("http")?`<a href="${j.applyUrl}" target="_blank" class="btn bsm">View ↗</a>`:""}
+          <button class="btn bp bsm" ${app?"disabled":""} onclick="qApplyFromSaved(${i})">${app?"Applied":"⚡ Apply"}</button>
+        </div>
+      </div>
+    </div>`;
+  }).join("");
+}
+function qApplyFromSaved(i){const j=DB.sv(U.id)[i];if(!j)return;CJ=j;go("apply");fillAASelect();const sel=document.getElementById("aa-job");const opt=Array.from(sel.options).find(o=>o.text.includes(j.company));if(opt)sel.value=opt.value;}
+
+/* ═══════════════════════════════
+   CREDENTIALS
+═══════════════════════════════ */
+async function saveCred(platform,emId,pwId){
+  const em=document.getElementById(emId).value.trim();
+  const pw=document.getElementById(pwId).value;
+  if(!em||!pw){flash("Enter email and password.");return;}
+  if(serverOn){
+    try{
+      const r=await fetch(SRV+"/credentials/save",{method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({platform,email:em,password:pw,user_id:U.id})});
+      if(r.ok){
+        flash("✓ "+platform+" password saved securely!");
+        loadCredentialStatus();
+        document.getElementById(pwId).value="";
+        return;
+      }
+    }catch(e){}
+  }
+  // Fallback: save in localStorage (less secure)
+  localStorage.setItem(`cred_${U.id}_${platform}`,JSON.stringify({email:em,password:btoa(pw)}));
+  flash("✓ "+platform+" password saved (server offline — stored locally)");
+  loadCredentialStatus();
+  document.getElementById(pwId).value="";
+}
+
+function getLocalCred(platform){
+  const s=localStorage.getItem(`cred_${U.id}_${platform}`);
+  if(!s) return null;
+  try{const d=JSON.parse(s);return{email:d.email,password:atob(d.password)};}catch(e){return null;}
+}
+
+async function loadCredentialStatus(){
+  const platforms=["internshala","linkedin","naukri","unstop"];
+  for(const p of platforms){
+    const el=document.getElementById("cred-"+p);
+    if(!el) continue;
+    let found=false;
+    if(serverOn){
+      try{
+        const r=await fetch(SRV+"/credentials/"+U.id+"/"+p);
+        if(r.ok){const d=await r.json();found=d.found;}
+      }catch(e){}
+    }
+    if(!found) found=!!getLocalCred(p);
+    if(el){el.textContent=found?"✓ Saved":"Not saved";el.className="cred-badge "+(found?"cb-ok":"cb-no");}
+  }
+}
+
+/* ═══════════════════════════════
+   AUTO-APPLY ENGINE
+═══════════════════════════════ */
+function fillAASelect(){
+  if(!U)return;
+  const sv=DB.sv(U.id),sel=document.getElementById("aa-job");
+  if(!sv.length){sel.innerHTML="<option>— save a job first —</option>";return;}
+  sel.innerHTML='<option value="">— pick a role —</option>'+sv.map((j,i)=>`<option value="${i}">${j.title} @ ${j.company}</option>`).join("");
+  if(CJ){const i=sv.findIndex(j=>j.title===CJ.title&&j.company===CJ.company);if(i>=0)sel.value=i;}
+}
+
+async function smartApply(emailOnlyMode){
+  const idx=document.getElementById("aa-job").value;
+  if(!idx&&idx!==0){flash("Please select a role first.");return;}
+  const job=DB.sv(U.id)[parseInt(idx)];
+  const tone=document.getElementById("aa-tone").value;
+  const focus=document.getElementById("aa-focus").value;
+  CJ=job;
+
+  document.getElementById("aa-prog").style.display="block";
+  document.getElementById("aa-pkg").style.display="none";
+  document.getElementById("aa-steps").innerHTML="";
+
+  const steps=[
+    {ic:"📋",t:"Loading profile & resume",s:U.name+" · CGPA "+U.cgpa},
+    {ic:"🎯",t:"Matching skills to role",s:job.match+"% match · "+job.company},
+    {ic:"✍️",t:"Writing tailored email",s:tone+" tone"},
+    {ic:"📝",t:"Writing cover letter",s:"Personalised for "+job.company},
+    {ic:serverOn&&!emailOnlyMode?"⚡":"🔗",t:serverOn&&!emailOnlyMode?"Submitting via saved credentials":"Preparing submit links",s:serverOn&&!emailOnlyMode?"Using saved password — no prompt":"Open page and paste"},
+  ];
+  for(let i=0;i<steps.length;i++){setStep(i,steps[i],"ac");setPB((i/steps.length)*80);await wait(420);setStep(i,steps[i],"dn");}
+
+  const rctx=DB.res(U.id)||`Name:${U.name}\nSkills:${U.skills||""}\nResearch:${U.research||""}\nProjects:${U.projects||""}\nAchievements:${U.achievements||""}`;
+  let pkg={};
+  try{
+    const sys=`Expert internship application writer 2026. Return ONLY raw JSON.`;
+    const usr=`Write internship application:\n${rctx}\nCGPA: ${U.cgpa} | University: ${U.university} | Graduating: ${U.year}\nEmail: ${U.email} | Phone: ${U.phone||""}\nRole: ${job.title} at ${job.company}\nSkills: ${(job.skills||[]).join(", ")} | Why: ${job.why||""}\nTone: ${tone} | Focus: ${focus}\nReturn: {"subject":"subject","email":"150-200 word email specific to ${job.company}","cover_letter":"250 word cover letter"}`;
+    const txt=await groq(sys,usr,2500);
+    try{const m=txt.match(/\{[\s\S]*?\}/);if(m)pkg=JSON.parse(m[0]);}catch(e){}
+  }catch(e){}
+  if(!pkg.email) pkg={subject:`Application: ${job.title} — ${U.name} | CGPA ${U.cgpa}`,email:fbEmail(job),cover_letter:fbCover(job)};
+
+  setPB(100);
+  document.getElementById("aa-subj").value=pkg.subject||"";
+  document.getElementById("aa-email").value=pkg.email||"";
+  document.getElementById("aa-cover").value=pkg.cover_letter||"";
+  buildLinks(job,pkg);
+  document.getElementById("aa-pkg").style.display="block";
+
+  try{await navigator.clipboard.writeText(pkg.email);}catch(e){}
+
+  if(!emailOnlyMode&&serverOn){
+    const platform=detectPlatform(job.applyUrl||"",job.source||"");
+    await autoSubmitNoPrompt(job,pkg,platform);
+  } else {
+    flash("📋 Email copied! Click a link below to open the apply page.");
+  }
+}
+
+function detectPlatform(url,source){
+  const s=(url+source).toLowerCase();
+  if(s.includes("internshala")) return "internshala";
+  if(s.includes("linkedin")) return "linkedin";
+  if(s.includes("naukri")) return "naukri";
+  if(s.includes("unstop")) return "unstop";
+  return "internshala";
+}
+
+async function autoSubmitNoPrompt(job,pkg,platform){
+  // Check if creds saved
+  let hasCreds=false;
+  if(serverOn){
+    try{const r=await fetch(SRV+"/credentials/"+U.id+"/"+platform);if(r.ok){const d=await r.json();hasCreds=d.found;}}catch(e){}
+  }
+  if(!hasCreds) hasCreds=!!getLocalCred(platform);
+
+  if(!hasCreds){
+    flash(`⚠️ No ${platform} password saved. Go to Settings → Save Password first.`);
+    return;
+  }
+
+  flash(`⚡ Auto-applying to ${job.company} — browser will open…`);
+  try{
+    const r=await fetch(SRV+"/apply",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({
+        platform,
+        job_id:job.id||"",
+        job_title:job.title,
+        company:job.company,
+        apply_url:job.applyUrl||"https://internshala.com",
+        email_text:document.getElementById("aa-email").value,
+        cover_letter:document.getElementById("aa-cover").value,
+        user_id:U.id,
+        dry_run:false
+      })
+    });
+    const d=await r.json();
+    if(d.ok){
+      flash("⚡ Auto-apply sent to agent! Check Tracker for result.");
+      // Poll for result
+      setTimeout(()=>{loadServerLog();renderTracker();},5000);
+    }
+  }catch(e){
+    flash("Server error — use submit links below");
+  }
+}
+
+function itab(t){
+  document.querySelectorAll(".itab").forEach((b,i)=>b.classList.toggle("on",["email","cover","links"][i]===t));
+  document.querySelectorAll(".itabp").forEach((p,i)=>p.classList.toggle("on",["it-email","it-cover","it-links"][i]==="it-"+t));
+}
+
+function buildLinks(job,pkg){
+  const el=document.getElementById("dl-links");
+  const url=job.applyUrl||"";
+  const subj=encodeURIComponent(document.getElementById("aa-subj").value||"");
+  const emailTxt=document.getElementById("aa-email").value||"";
+  let links=[];
+
+  if(url&&url.startsWith("http")){
+    let ic="🚀",lbl="Apply Directly — "+job.company,src=job.source||"";
+    if(url.includes("internshala")||src.includes("Internshala")){ic="🎓";lbl="Apply on Internshala (Direct)";}
+    else if(url.includes("linkedin")){ic="💼";lbl="Apply on LinkedIn Easy Apply";}
+    else if(url.includes("naukri")){ic="💼";lbl="Apply on Naukri";}
+    else if(url.includes("unstop")){ic="🏆";lbl="Apply on Unstop";}
+    links.push({ic,lbl,sub:"⚡ Email auto-copied — paste Ctrl+V and submit",url,pri:true});
+  }
+
+  const q=encodeURIComponent(job.title||"");
+  if(!url.includes("internshala")) links.push({ic:"🎓",lbl:"Internshala — #1 India internship",sub:"Search & apply with saved email",url:`https://internshala.com/internships/keywords-${q}/`,pri:false});
+  if(!url.includes("naukri")) links.push({ic:"💼",lbl:"Naukri Internships",sub:"India's largest job portal",url:`https://www.naukri.com/${(job.title||"internship").toLowerCase().replace(/\s+/g,"-")}-internship-jobs`,pri:false});
+  if(!url.includes("unstop")) links.push({ic:"🏆",lbl:"Unstop",sub:"College internships & competitions",url:`https://unstop.com/internships?search=${q}`,pri:false});
+  links.push({ic:"👋",lbl:"LetsIntern",sub:"Internships for students",url:`https://letsintern.com/internships?q=${q}`,pri:false});
+  if(job.emailTo) links.push({ic:"📧",lbl:"Email directly",sub:job.emailTo,url:`mailto:${job.emailTo}?subject=${subj}&body=${encodeURIComponent(emailTxt.slice(0,1800))}`,pri:false});
+
+  el.innerHTML=links.map(l=>`
+    <button class="plat-card ${l.pri?"pri":""}" onclick="onLink(event,'${l.url.replace(/'/g,"\\'")}')">
+      <div style="font-size:20px;width:30px;text-align:center;flex-shrink:0">${l.ic}</div>
+      <div style="flex:1"><div class="pt">${l.lbl}</div><div class="ps">${l.sub}</div></div>
+      <div class="pa">→</div>
+    </button>`).join("");
+}
+
+function onLink(e,url){
+  e.preventDefault();
+  const emailTxt=document.getElementById("aa-email")?.value;
+  if(emailTxt&&!url.startsWith("mailto")){
+    navigator.clipboard.writeText(emailTxt).then(()=>{
+      flash("📋 Email copied! Opening apply page…");
+      setTimeout(()=>window.open(url,"_blank"),400);
+    }).catch(()=>window.open(url,"_blank"));
+  } else window.open(url,"_blank");
+}
+
+function markApplied(){
+  if(!CJ||!U)return;
+  const ap=DB.ap(U.id);
+  if(!ap.find(a=>a.title===CJ.title&&a.company===CJ.company)){
+    ap.push({...CJ,appliedDate:new Date().toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"})});
+    DB.wap(U.id,ap);updBadges();
+  }
+  flash("✓ Marked as applied!");
+  renderTracker();go("tracker");
+}
+function setStep(i,s,st){
+  const el=document.getElementById("aa-steps"),ex=document.getElementById("aas-"+i);
+  const h=`<div class="aa-step ${st}" id="aas-${i}"><div class="as-ic">${s.ic}</div><div style="flex:1"><div style="font-size:12px;font-weight:600">${s.t}</div><div style="font-size:10px;color:var(--tx2);margin-top:1px">${s.s}</div></div>${st==="ac"?'<span class="sp"></span>':st==="dn"?'<span style="color:var(--g);font-size:16px;font-weight:700">✓</span>':''}</div>`;
+  if(ex)ex.outerHTML=h;else el.innerHTML+=h;
+}
+function setPB(p){document.getElementById("aa-pb").style.width=p+"%";}
+
+/* ═══════════════════════════════
+   TRACKER
+═══════════════════════════════ */
+function renderTracker(){
+  if(!U)return;
+  const sv=DB.sv(U.id),ap=DB.ap(U.id);
+  const pend=sv.filter(j=>!ap.find(a=>a.title===j.title&&a.company===j.company));
+  const avg=ap.length?Math.round(ap.reduce((s,j)=>s+j.match,0)/ap.length):0;
+  document.getElementById("tr-met").innerHTML=`
+    <div class="met mp" onclick="showMet('applied')"><div class="mv">${ap.length}</div><div class="ml">Applied</div><div class="ms">View →</div></div>
+    <div class="met mt" onclick="showMet('saved')"><div class="mv">${sv.length}</div><div class="ml">Saved</div><div class="ms">View →</div></div>
+    <div class="met ma" onclick="showMet('match')"><div class="mv">${avg}%</div><div class="ml">Avg match</div><div class="ms">Details →</div></div>
+    <div class="met mb" onclick="showMet('pending')"><div class="mv">${pend.length}</div><div class="ml">Pending</div><div class="ms">Apply →</div></div>`;
+  const el=document.getElementById("tr-list");
+  if(!ap.length){el.innerHTML='<div style="text-align:center;padding:1.5rem;color:var(--tx2)">No applications yet.</div>';return;}
+  el.innerHTML=ap.map((j,i)=>`<div class="jcard jc-applied" onclick="openApOv(${i})" style="cursor:pointer">
+    <div class="jcard-bar"></div>
+    <div class="jcard-h">
+      <div class="co-logo">${j.company?.charAt(0)||"?"}</div>
+      <div class="jcard-inf">
+        <div class="jcard-t">${j.title}<span class="jtag" style="background:var(--gb);color:var(--g)">✓</span></div>
+        <div class="jcard-co">${j.company}</div>
+        <div class="jcard-meta"><span class="jm">📍 ${j.location||"India"}</span><span class="jm">✅ ${j.appliedDate}</span></div>
+      </div>
+      <div class="mring ${rc(j.match)}" style="--p2:${j.match}"><div class="mring-in">${j.match}%</div></div>
+    </div>
+    <p style="font-size:11px;color:var(--tx2);margin-top:.25rem">Click for details →</p>
+  </div>`).join("");
+}
+
+async function loadServerLog(){
+  if(!serverOn) return;
+  const el=document.getElementById("server-log-list");
+  try{
+    const r=await fetch(SRV+"/log/"+U.id);
+    if(r.ok){
+      const d=await r.json();
+      const log=d.log||[];
+      if(!log.length){el.innerHTML='<p style="font-size:12px;color:var(--tx2)">No auto-apply logs yet.</p>';return;}
+      el.innerHTML=log.slice(0,20).map(e=>`
+        <div style="display:flex;align-items:center;gap:8px;padding:.5rem 0;border-bottom:1px solid var(--br);font-size:12px">
+          <span style="color:${e.status==="APPLIED"?"var(--g)":e.status.includes("ERROR")?"var(--r)":"var(--o)"}">
+            ${e.status==="APPLIED"?"✓":e.status.includes("ERROR")?"✗":"~"}
+          </span>
+          <div style="flex:1"><div style="font-weight:600">${e.role} @ ${e.company}</div>
+          <div style="color:var(--tx2)">${e.platform} · ${e.date}</div></div>
+          <span class="jtag ${e.status==="APPLIED"?"jt-top":e.status.includes("ERROR")?"jt-hot":"jt-src"}">${e.status}</span>
+        </div>`).join("");
+    }
+  }catch(e){el.innerHTML='<p style="font-size:12px;color:var(--tx2)">Server not connected.</p>';}
+}
+
+/* ═══════════════════════════════
+   METRIC MODALS
+═══════════════════════════════ */
+function showMet(type){
+  if(!U)return;
+  const sv=DB.sv(U.id),ap=DB.ap(U.id);
+  const pend=sv.filter(j=>!ap.find(a=>a.title===j.title&&a.company===j.company));
+  const titles={saved:"Saved Jobs",applied:"Applied Jobs",pending:"Pending",match:"Match Breakdown"};
+  document.getElementById("ovm-t").textContent=titles[type];
+  let body="";
+  if(type==="saved"||type==="applied"){
+    const list=type==="saved"?sv:ap;
+    if(!list.length) body='<p style="color:var(--tx2);padding:1rem 0">None yet.</p>';
+    else body=list.map(j=>`<div style="padding:.65rem 0;border-bottom:1px solid var(--br)">
+      <div style="display:flex;align-items:center;gap:8px">
+        <div style="width:32px;height:32px;border-radius:7px;background:var(--p3);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--p);flex-shrink:0;font-size:13px">${j.company?.charAt(0)||"?"}</div>
+        <div style="flex:1"><div style="font-size:13px;font-weight:700">${j.title}</div><div style="font-size:11px;color:var(--tx2)">${j.company} · ${j.stipend||"—"}</div></div>
+        <div style="font-size:12px;font-weight:700;color:${j.match>=90?"var(--g)":"var(--p)"}">${j.match}%</div>
+      </div>
+      <div style="display:flex;gap:4px;margin-top:5px;flex-wrap:wrap">
+        <span class="jtag jt-dl">⏰ ${j.deadline||"Apply Now"}</span>
+        ${type==="applied"?`<span class="jtag jt-top">Applied ${j.appliedDate||""}</span>`:`<span class="jtag jt-src">Saved ${j.savedDate||""}</span>`}
+      </div></div>`).join("");
+  } else if(type==="pending"){
+    body=pend.length?pend.map((j,i)=>`<div style="padding:.6rem 0;border-bottom:1px solid var(--br)">
+      <div style="font-size:13px;font-weight:700">${j.title} @ ${j.company}</div>
+      <button class="btn bp bsm" style="margin-top:6px" onclick="qApplyFromSaved(${sv.indexOf(j)});cov('ov-met')">⚡ Apply Now</button></div>`).join("")
+      :'<div class="gbox">All saved jobs applied!</div>';
+  } else {
+    const all=[...ap,...sv];
+    body=`<div class="dr"><span class="dk">90%+ match</span><span class="dval" style="color:var(--g)">${all.filter(j=>j.match>=90).length}</span></div>
+    <div class="dr"><span class="dk">80-89%</span><span class="dval" style="color:var(--p)">${all.filter(j=>j.match>=80&&j.match<90).length}</span></div>
+    <div class="dr"><span class="dk">Below 80%</span><span class="dval">${all.filter(j=>j.match<80).length}</span></div>
+    <div class="dr"><span class="dk">Indian companies</span><span class="dval" style="color:var(--o)">${all.filter(j=>j.isLocal).length}</span></div>`;
+  }
+  document.getElementById("ovm-b").innerHTML=body;openOv("ov-met");
+}
+function openJobOv(i){
+  const j=DB.sv(U.id)[i];if(!j)return;
+  document.getElementById("ovj-t").textContent=j.title+" @ "+j.company;
+  document.getElementById("ovj-b").innerHTML=`
+    <div class="dr"><span class="dk">Company</span><span class="dval">${j.company}</span></div>
+    <div class="dr"><span class="dk">Location</span><span class="dval">${j.location||"India"}</span></div>
+    <div class="dr"><span class="dk">Stipend</span><span class="dval">${j.stipend||"—"}</span></div>
+    <div class="dr"><span class="dk">Match</span><span class="dval" style="color:var(--g)">${j.match}%</span></div>
+    <div class="dr"><span class="dk">Source</span><span class="dval">${j.source||"Web"}</span></div>
+    ${j.applyUrl&&j.applyUrl.startsWith("http")?`<div class="dr"><span class="dk">Link</span><span class="dval"><a href="${j.applyUrl}" target="_blank" style="color:var(--p)">Open ↗</a></span></div>`:""}
+    <div class="dv"></div>
+    <div class="ibox" style="margin-bottom:.75rem">${j.why||"Matches your profile"}</div>
+    <button class="btn bp bfull" onclick="qApplyFromSaved(${DB.sv(U.id).indexOf(j)});cov('ov-job')">⚡ Apply Now</button>`;
+  openOv("ov-job");
+}
+function openApOv(i){
+  const j=DB.ap(U.id)[i];if(!j)return;
+  document.getElementById("ovj-t").textContent="Applied: "+j.title;
+  document.getElementById("ovj-b").innerHTML=`
+    <div class="gbox" style="margin-bottom:.75rem">✓ Applied on ${j.appliedDate}</div>
+    <div class="dr"><span class="dk">Company</span><span class="dval">${j.company}</span></div>
+    <div class="dr"><span class="dk">Location</span><span class="dval">${j.location||"India"}</span></div>
+    <div class="dr"><span class="dk">Stipend</span><span class="dval">${j.stipend||"—"}</span></div>
+    <div class="dr"><span class="dk">Match</span><span class="dval" style="color:var(--g)">${j.match}%</span></div>
+    ${j.applyUrl&&j.applyUrl.startsWith("http")?`<div class="dr"><span class="dk">Link</span><span class="dval"><a href="${j.applyUrl}" target="_blank" style="color:var(--p)">Open ↗</a></span></div>`:""}`;
+  openOv("ov-job");
+}
+function openOv(id){document.getElementById(id).classList.add("open");}
+function cov(id){document.getElementById(id).classList.remove("open");}
+document.querySelectorAll(".ov").forEach(el=>el.addEventListener("click",e=>{if(e.target===el)el.classList.remove("open");}));
+
+/* ═══════════════════════════════
+   RESUME UPLOAD + AUTO SKILL DETECTION
+═══════════════════════════════ */
+if(window.pdfjsLib) pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+async function uploadPDF(e){
+  const file=e.target.files[0];if(!file)return;
+  if(file.size>5*1024*1024){flash("Max 5MB");return;}
+  document.getElementById("up-ic").textContent="⏳";
+  document.getElementById("up-t").textContent="Reading resume…";
+  try{
+    const pdf=await pdfjsLib.getDocument({data:await file.arrayBuffer()}).promise;
+    let txt="";
+    for(let i=1;i<=pdf.numPages;i++){const pg=await pdf.getPage(i);const tc=await pg.getTextContent();txt+=tc.items.map(t=>t.str).join(" ")+"\n";}
+    DB.wres(U.id,txt);
+    document.getElementById("upz").classList.add("done");
+    document.getElementById("up-ic").textContent="✅";
+    document.getElementById("up-t").textContent=file.name+" ("+pdf.numPages+"p)";
+    document.getElementById("up-s").textContent="Skills auto-detected — select below to search";
+    showParsed(txt);
+    autoDetectSkills(txt);
+    flash("✅ Resume loaded! Skills detected — select and search below.");
+  }catch(err){
+    document.getElementById("up-ic").textContent="❌";
+    document.getElementById("up-t").textContent="Failed: "+err.message;
+  }
+}
+
+function autoDetectSkills(txt){
+  // Extract skills from resume text
+  const allSkills=[
+    // Tech
+    "Python","Java","JavaScript","TypeScript","C++","C","C#","Go","Rust","Kotlin","Swift","PHP","Ruby","R","MATLAB","SQL","HTML","CSS",
+    // Frameworks
+    "React","Angular","Vue","Node.js","Django","Flask","FastAPI","Spring","Laravel","Express","Next.js","Nuxt","Flutter","React Native",
+    // ML/AI
+    "Machine Learning","Deep Learning","PyTorch","TensorFlow","Keras","Scikit-learn","OpenCV","YOLOv8","YOLO","NLP","Computer Vision","GenAI","LLM","RAG","AI Agents",
+    // Data
+    "Data Science","Data Analysis","Pandas","NumPy","Matplotlib","Power BI","Tableau","Excel","SQL","MongoDB","PostgreSQL","MySQL",
+    // Cloud/DevOps
+    "AWS","Azure","GCP","Docker","Kubernetes","Git","Linux","DevOps","CI/CD",
+    // Design
+    "Figma","UI/UX","Photoshop","Illustrator","Canva","Adobe XD",
+    // Business
+    "Marketing","Digital Marketing","SEO","Social Media","Content Writing","HR","Finance","Accounting","Business Development","Product Management",
+    // Other
+    "Android","iOS","Blockchain","Cybersecurity","Embedded Systems","Arduino","MATLAB",
+  ];
+  const txtLow=txt.toLowerCase();
+  const detected=allSkills.filter(sk=>txtLow.includes(sk.toLowerCase()));
+
+  // Also extract from SKILLS section
+  const skillMatch=txt.match(/skills?[:\-–\s]+([^\n]{20,200})/gi);
+  if(skillMatch){
+    skillMatch.forEach(line=>{
+      const parts=line.replace(/skills?[:\-–\s]+/i,"").split(/[,•·|\/\n]/);
+      parts.forEach(p=>{
+        const t=p.trim();
+        if(t.length>1&&t.length<30&&!detected.includes(t)) detected.push(t);
+      });
+    });
+  }
+
+  autoSkills=detected.slice(0,30);
+  selectedSkills=new Set(autoSkills.slice(0,10)); // pre-select first 10
+  renderAutoSkillChips();
+  document.getElementById("skill-detect-card").style.display="block";
+}
+
+function renderAutoSkillChips(){
+  document.getElementById("auto-skill-chips").innerHTML=autoSkills.map(sk=>
+    `<span class="sk-chip ${selectedSkills.has(sk)?"on":""}" onclick="toggleSkill('${sk.replace(/'/g,"\\'")}')">${sk}</span>`
+  ).join("");
+}
+function toggleSkill(sk){
+  if(selectedSkills.has(sk)) selectedSkills.delete(sk);
+  else selectedSkills.add(sk);
+  renderAutoSkillChips();
+}
+function selectAllSkills(){selectedSkills=new Set(autoSkills);renderAutoSkillChips();}
+function clearAllSkills(){selectedSkills=new Set();renderAutoSkillChips();}
+
+function showParsed(txt){
+  document.getElementById("res-parsed").style.display="block";
+  document.getElementById("res-content").innerHTML=`
+    <div class="dr"><span class="dk">Characters</span><span class="dval">${txt.length.toLocaleString()}</span></div>
+    <div class="dr"><span class="dk">Words</span><span class="dval">${txt.split(/\s+/).length.toLocaleString()}</span></div>
+    <div class="dv"></div>
+    <div style="background:var(--bg);border-radius:var(--rs);padding:.6rem;font-size:11px;font-family:monospace;color:var(--tx2);line-height:1.7;white-space:pre-wrap;max-height:120px;overflow-y:auto">${txt.slice(0,400)}…</div>`;
+}
+function renderProfile(){
+  if(!U)return;
+  const rt=DB.res(U.id);if(rt)showParsed(rt);
+  document.getElementById("prof-view").innerHTML=`
+    <div class="dr"><span class="dk">Name</span><span class="dval">${U.name}</span></div>
+    <div class="dr"><span class="dk">Email</span><span class="dval">${U.email}</span></div>
+    <div class="dr"><span class="dk">Phone</span><span class="dval">${U.phone||"—"}</span></div>
+    <div class="dr"><span class="dk">University</span><span class="dval">${U.university||"—"}</span></div>
+    <div class="dr"><span class="dk">CGPA</span><span class="dval" style="color:var(--g);font-weight:800">${U.cgpa||"—"}</span></div>
+    <div class="dr"><span class="dk">Graduating</span><span class="dval">${U.year||"—"}</span></div>
+    ${U.skills?`<div class="dv"></div><div style="display:flex;flex-wrap:wrap;gap:3px">${U.skills.split(",").map(s=>`<span class="jtag jt-s">${s.trim()}</span>`).join("")}</div>`:""}`;
+}
+
+/* ═══════════════════════════════
+   MONITOR
+═══════════════════════════════ */
+async function startMonitor(){
+  if(!serverOn){flash("Start server.py first");return;}
+  const query=document.getElementById("mon-query").value.trim()||"machine learning";
+  const cat=document.getElementById("mon-cat").value.trim()||"AI/ML";
+  const autoApply=document.getElementById("mon-auto").checked;
+  try{
+    const r=await fetch(SRV+"/monitor/start",{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({user_id:U.id,query,category:cat,auto_apply:autoApply})});
+    if(r.ok){
+      document.getElementById("mon-status").textContent="✓ Running — checks every 30 min";
+      document.getElementById("mon-status").style.color="var(--g)";
+      flash("✓ Monitor started! Auto-applies when new '"+query+"' internships appear.");
+    }
+  }catch(e){flash("Error starting monitor");}
+}
+async function stopMonitor(){
+  if(!serverOn) return;
+  try{
+    await fetch(SRV+"/monitor/stop/"+U.id,{method:"POST"});
+    document.getElementById("mon-status").textContent="Stopped";
+    document.getElementById("mon-status").style.color="var(--tx2)";
+    flash("Monitor stopped.");
+  }catch(e){}
+}
+
+/* ═══════════════════════════════
+   ATS
+═══════════════════════════════ */
+async function genATS(){
+  const role=document.getElementById("ats-role").value.trim();
+  const style=document.getElementById("ats-style").value;
+  const len=document.getElementById("ats-len").value;
+  const btn=document.getElementById("ats-btn");
+  btn.disabled=true;btn.innerHTML='<span class="sp"></span> Generating…';
+  document.getElementById("ats-log-c").style.display="block";
+  document.getElementById("ats-out-c").style.display="none";
+  document.getElementById("ats-log").innerHTML="";
+  const al2=(cls,msg)=>{const e=document.getElementById("ats-log");e.innerHTML+=`<div><span class="${cls}">${msg}</span></div>`;};
+  al2("lru","[agent] loading profile…");
+  al2("lai","[groq] generating ATS resume…");
+  const rctx=DB.res(U.id)||`Name:${U.name}\nSkills:${U.skills||""}\nResearch:${U.research||""}\nProjects:${U.projects||""}\nAchievements:${U.achievements||""}`;
+  const sys=`Expert ATS resume writer 2026. ONLY plain text — no markdown, no tables. ALL CAPS section headers. • bullets. Dense tech keywords. Works for both tech and non-tech roles.`;
+  const usr=`Generate ATS resume (${len}) for 2026:\n${rctx}\nCGPA: ${U.cgpa} | University: ${U.university} | Graduating: ${U.year}\nEmail: ${U.email} | Phone: ${U.phone||""}\n${role?"Target: "+role:""}\nStyle: ${style}\nSections: Name+Contact, PROFESSIONAL SUMMARY, EDUCATION, TECHNICAL SKILLS, PROJECTS/EXPERIENCE, CERTIFICATIONS, ACHIEVEMENTS`;
+  try{
+    const txt=await groq(sys,usr,4000);
+    al2("lok","[done] ATS resume generated");
+    document.getElementById("ats-body").textContent=txt;
+    document.getElementById("ats-out-c").style.display="block";
+  }catch(e){
+    al2("le","[err] "+e.message);
+    document.getElementById("ats-body").textContent=fbATS();
+    document.getElementById("ats-out-c").style.display="block";
+  }
+  btn.disabled=false;btn.innerHTML="✨ Generate ATS Resume";
+}
+function dlATS(){
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob([document.getElementById("ats-body").textContent],{type:"text/plain"}));
+  a.download=(U?.name||"Resume").replace(/ /g,"_")+"_ATS_2026.txt";
+  a.click();
+}
+
+/* ═══════════════════════════════
+   HELPERS
+═══════════════════════════════ */
+function cp(id){
+  const el=document.getElementById(id);if(!el)return;
+  navigator.clipboard.writeText(el.value||el.textContent||"").then(()=>{
+    const m=document.getElementById("cpmsg");if(m){m.style.display="block";setTimeout(()=>m.style.display="none",2000);}
+    flash("Copied!");
+  });
+}
+function flash(msg){
+  document.querySelectorAll(".sfx").forEach(e=>e.remove());
+  const el=document.createElement("div");el.className="sfx";el.textContent=msg;
+  document.body.appendChild(el);setTimeout(()=>el.remove(),3500);
+}
+function fbEmail(job){return `Dear Hiring Team at ${job.company},\n\nI am ${U.name}, ${U.university||"Bennett University"} (CGPA ${U.cgpa||"9.0"}, graduating ${U.year||"2027"}), applying for ${job.title}.\n\n${U.research||""}\n${U.projects?U.projects.split(";")[0].trim():""}\n\nI would be grateful for this opportunity.\n\nRegards,\n${U.name}\n${U.email} | ${U.phone||""}`;}
+function fbCover(job){return `Dear Hiring Manager,\n\nI am ${U.name} from ${U.university||"Bennett University"} (CGPA ${U.cgpa||"9.0"}), applying for ${job.title} at ${job.company}.\n\n${U.research||"I have strong technical skills and project experience."}\n\nI am excited about this opportunity and welcome an interview.\n\nSincerely,\n${U.name}\n${U.email}`;}
+function fbATS(){return `${(U?.name||"").toUpperCase()}\n${U?.email} | ${U?.phone||""} | ${U?.university||""} | ${U?.year||""}\n\nPROFESSIONAL SUMMARY\n${U?.research||"Student with technical skills"}\n\nEDUCATION\n${U?.university||"University"} | B.Tech | ${U?.year||""}\nCGPA: ${U?.cgpa||""}\n\nTECHNICAL SKILLS\n${(U?.skills||"Python").split(",").map(s=>"• "+s.trim()).join("\n")}\n\nPROJECTS\n${(U?.projects||"").split(";").map(p=>"• "+p.trim()).join("\n")}\n\nACHIEVEMENTS\n${(U?.achievements||"").split(";").map(a=>"• "+a.trim()).join("\n")}`;}
+
+function getGroqFallback(query,loc){
+  const q=query.toLowerCase();
+  const isHR=q.includes("hr")||q.includes("human resource");
+  const isMkt=q.includes("market")||q.includes("content")||q.includes("social");
+  const isFinance=q.includes("financ")||q.includes("account");
+  const isDesign=q.includes("design")||q.includes("ui")||q.includes("ux");
+  const isAndroid=q.includes("android")||q.includes("mobile")||q.includes("flutter");
+  const isWeb=q.includes("web")||q.includes("full stack")||q.includes("frontend")||q.includes("react");
+  const isSDE=q.includes("software")||q.includes("sde")||q.includes("java")||q.includes("backend");
+
+  if(isHR) return [
+    {id:"hr1",title:"HR Intern",company:"Swiggy",companyType:"startup",location:"Bangalore/Remote",workMode:"Hybrid",stipend:"₹15,000/mo",duration:"3 months",skills:["Recruitment","MS Office","Communication"],deadline:"May 2026",posted:"Apr 2026",match:88,why:"HR internship at top Indian food-tech startup",source:"Internshala",applyUrl:"https://internshala.com/internships/human-resource-HR-internship/",isLocal:true,hot:true,category:query},
+    {id:"hr2",title:"HR Internship",company:"Zomato",companyType:"startup",location:"Gurugram",workMode:"In-Office",stipend:"₹18,000/mo",duration:"2 months",skills:["HR","Recruitment","Excel"],deadline:"May 2026",posted:"Apr 2026",match:85,why:"HR at Zomato — India's #1 food delivery",source:"Naukri",applyUrl:"https://www.naukri.com/human-resource-HR-internship-jobs",isLocal:true,hot:false,category:query},
+    {id:"hr3",title:"HR & Talent Acquisition Intern",company:"Info Edge (Naukri)",companyType:"local",location:"Noida",workMode:"Hybrid",stipend:"₹20,000/mo",duration:"3 months",skills:["Talent Acquisition","HR","Communication"],deadline:"Jun 2026",posted:"Apr 2026",match:90,why:"HR intern at the company that runs Naukri.com itself",source:"Naukri",applyUrl:"https://www.naukri.com/human-resource-HR-internship-jobs-in-noida",isLocal:true,hot:true,category:query},
+  ];
+  if(isMkt) return [
+    {id:"mkt1",title:"Digital Marketing Intern",company:"Meesho",companyType:"startup",location:"Bangalore/Remote",workMode:"Remote",stipend:"₹15,000/mo",duration:"3 months",skills:["Digital Marketing","SEO","Content"],deadline:"May 2026",posted:"Apr 2026",match:87,why:"Digital marketing at India's fastest growing e-commerce platform",source:"Internshala",applyUrl:"https://internshala.com/internships/digital-marketing-internship/",isLocal:true,hot:true,category:query},
+    {id:"mkt2",title:"Content Writing Intern",company:"upGrad",companyType:"startup",location:"Mumbai/Remote",workMode:"Remote",stipend:"₹12,000/mo",duration:"2 months",skills:["Content Writing","SEO","Research"],deadline:"May 2026",posted:"Apr 2026",match:82,why:"Content at India's top edtech platform",source:"Internshala",applyUrl:"https://internshala.com/internships/content-writing-internship/",isLocal:true,hot:false,category:query},
+  ];
+  if(isWeb) return [
+    {id:"web1",title:"Full Stack Developer Intern",company:"Razorpay",companyType:"startup",location:"Bangalore",workMode:"Hybrid",stipend:"₹40,000/mo",duration:"3 months",skills:["React","Node.js","JavaScript","SQL"],deadline:"May 2026",posted:"Apr 2026",match:90,why:"Full stack at India's top fintech",source:"Internshala",applyUrl:"https://internshala.com/internships/web-development-internship/",isLocal:true,hot:true,category:query},
+    {id:"web2",title:"Frontend Developer Intern",company:"CRED",companyType:"startup",location:"Bangalore/Remote",workMode:"Hybrid",stipend:"₹35,000/mo",duration:"3 months",skills:["React","CSS","JavaScript","TypeScript"],deadline:"Jun 2026",posted:"Apr 2026",match:88,why:"Frontend at CRED — India's premium fintech app",source:"Naukri",applyUrl:"https://www.naukri.com/web-development-internship-jobs",isLocal:true,hot:false,category:query},
+  ];
+  if(isAndroid) return [
+    {id:"and1",title:"Android Developer Intern",company:"ShareChat",companyType:"startup",location:"Bangalore/Remote",workMode:"Hybrid",stipend:"₹35,000/mo",duration:"3 months",skills:["Android","Kotlin","Java"],deadline:"May 2026",posted:"Apr 2026",match:89,why:"Android at India's leading social platform",source:"Internshala",applyUrl:"https://internshala.com/internships/android-internship/",isLocal:true,hot:true,category:query},
+    {id:"and2",title:"Flutter Developer Intern",company:"Paytm",companyType:"startup",location:"Noida",workMode:"Hybrid",stipend:"₹30,000/mo",duration:"3 months",skills:["Flutter","Dart","Firebase"],deadline:"Jun 2026",posted:"Apr 2026",match:86,why:"Mobile dev at Paytm — India's payment super-app",source:"Naukri",applyUrl:"https://www.naukri.com/android-internship-jobs",isLocal:true,hot:false,category:query},
+  ];
+  // Default: Software/AI
+  return [
+    {id:"def1",title:"Software Development Intern",company:"Zoho Corp",companyType:"local",location:"Chennai/Remote",workMode:"Hybrid",stipend:"₹25,000/mo",duration:"6 months",skills:["Python","Java","SQL","API"],deadline:"Jun 2026",posted:"Apr 2026",match:86,why:"SDE intern at India's largest product tech company",source:"Internshala",applyUrl:"https://internshala.com/internships/software-development-internship/",isLocal:true,hot:true,category:query},
+    {id:"def2",title:"Software Developer Intern",company:"Freshworks",companyType:"local",location:"Chennai/Bangalore",workMode:"Hybrid",stipend:"₹40,000/mo",duration:"3 months",skills:["Python","JavaScript","SQL"],deadline:"May 2026",posted:"Apr 2026",match:88,why:"SDE at NASDAQ-listed Indian SaaS company",source:"Naukri",applyUrl:"https://www.naukri.com/software-development-internship-jobs",isLocal:true,hot:true,category:query},
+    {id:"def3",title:"Machine Learning Intern",company:"Google",companyType:"mnc",location:loc||"Bangalore",workMode:"Hybrid",stipend:"₹1,00,000/mo",duration:"3 months",skills:["Python","ML","PyTorch"],deadline:"May 2026",posted:"Apr 2026",match:95,why:"ML intern at Google India",source:"Google Careers",applyUrl:"https://careers.google.com/jobs/results/?q=intern+machine+learning",isLocal:false,hot:true,category:query},
+    {id:"def4",title:"Data Science Intern",company:"Flipkart",companyType:"startup",location:"Bangalore",workMode:"In-Office",stipend:"₹50,000/mo",duration:"3 months",skills:["Python","Data Science","SQL","ML"],deadline:"Jun 2026",posted:"Apr 2026",match:87,why:"Data Science at India's #1 e-commerce",source:"Internshala",applyUrl:"https://internshala.com/internships/data-science-internship/",isLocal:true,hot:false,category:query},
+  ];
+}
+
+/* ═══════════════════════════════
+   INIT
+═══════════════════════════════ */
+boot();
+</script>
+</body>
+</html>
